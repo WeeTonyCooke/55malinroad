@@ -135,10 +135,8 @@
       position: absolute;
       inset: -6% 0 -6%;
       background-image: url('images/hero.jpg');
-      background-size: contain;
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-color: #0C0908;
+      background-size: cover;
+      background-position: center 45%;
       will-change: transform;
     }
     .landing-bg::after {
@@ -146,8 +144,10 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(to right,  rgba(12,9,8,.9) 0%, transparent 18%, transparent 82%, rgba(12,9,8,.9) 100%),
-        linear-gradient(to bottom, rgba(12,9,8,.25) 0%, rgba(12,9,8,.0) 30%, rgba(12,9,8,.55) 100%);
+        linear-gradient(to bottom,
+          rgba(12,9,8,.3) 0%,
+          rgba(12,9,8,.05) 40%,
+          rgba(12,9,8,.65) 100%);
     }
 
     .landing-content {
@@ -168,6 +168,16 @@
       margin-bottom: 2.5rem;
     }
     .landing-headline em { font-style: italic; }
+
+    .landing-sub {
+      font-size: .85rem;
+      font-weight: 300;
+      line-height: 1.75;
+      color: rgba(255,255,255,.6);
+      max-width: 420px;
+      margin-bottom: 2.5rem;
+      letter-spacing: .01em;
+    }
 
     .landing-scroll {
       display: flex;
@@ -597,6 +607,39 @@
     }
     .btn-enquire:hover .btn-enquire-arrow { width: 32px; }
 
+    /* ─── Features ───────────────────────────────────────────────── */
+    .features {
+      padding: clamp(4rem,8vw,8rem) 3rem;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .features-inner {
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+    .features-heading {
+      font-family: var(--f-display);
+      font-weight: 300;
+      font-size: clamp(1.4rem, 2.2vw, 1.9rem);
+      color: var(--mist);
+      letter-spacing: -.005em;
+      margin-bottom: 2.8rem;
+    }
+    .features-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      column-gap: 3rem;
+    }
+    .features-list li {
+      font-size: .78rem;
+      line-height: 1.6;
+      padding: .75rem 0;
+      border-top: 1px solid var(--border);
+      letter-spacing: .03em;
+      color: var(--peat-light);
+    }
+
     /* ─── Footer ──────────────────────────────────────────────────── */
     footer {
       padding: 3.5rem 3rem;
@@ -694,8 +737,9 @@
     <div class="landing-bg" id="js-parallax" role="img" aria-label="55 Malin Road, Moville, Inishowen"></div>
     <div class="landing-content">
       <h1 class="landing-headline">
-        55 Malin Road,<br><em>Inishowen.</em>
+        A quieter way<br>to <em>stay.</em>
       </h1>
+      <p class="landing-sub">A comfortable three-bedroom holiday home in the heart of Moville. A relaxed base for exploring the Inishowen Peninsula.</p>
       <div class="landing-scroll" aria-hidden="true">
         <span class="landing-scroll-line"></span>
         <span class="landing-scroll-text">Scroll to explore</span>
@@ -708,10 +752,10 @@
     <div class="intro-text reveal">
       <span class="label intro-label">55 Malin Road — Moville, Co. Donegal</span>
       <h2 class="intro-headline" id="intro-heading">
-        Three bedrooms.<br><em>One good address.</em>
+        Stay together.<br><em>Settle in.</em>
       </h2>
-      <p class="intro-body">55 Malin Road is a three-bedroom house in the centre of Moville — a small seaside town on the western shore of Lough Foyle, at the heart of the Inishowen Peninsula. Comfortable, private, and genuinely well looked after. Malin Head is forty minutes north. Five Fingers Strand is twenty.</p>
-      <p class="intro-body" style="margin-top:1.2rem">The whole house. Sleeps six. A private hot tub in the garden. Walking distance to the pier, the restaurants, and everything the town has to offer.</p>
+      <p class="intro-body">55 Malin Road is a comfortable three-bedroom holiday home in the heart of Moville. With space for up to six guests, it's an easy place to settle in, whether you're here for a weekend or a longer stay.</p>
+      <p class="intro-body" style="margin-top:1.2rem">The town's waterfront, cafés, pubs and local shops are all within walking distance, while the wider Inishowen Peninsula is right on your doorstep.</p>
     </div>
     <div class="intro-image reveal delay-2">
       <img
@@ -728,7 +772,7 @@
   <section class="house" id="house" aria-labelledby="house-heading">
     <div class="house-header reveal">
       <h2 class="house-headline" id="house-heading">The House</h2>
-      <p class="house-subtext">Three bedrooms. Sleeps six.<br>A private hot tub in the garden.</p>
+      <p class="house-subtext">Three bedrooms.<br>Sleeps up to six.</p>
     </div>
 
     <!-- Room 01 -->
@@ -822,7 +866,26 @@
     </article>
   </section>
 
-  <!-- ── 04 Life Here ───────────────────────────────────────────── -->
+  <!-- ── 04 Features ───────────────────────────────────────────── -->
+  <section class="features" aria-label="Property features">
+    <div class="features-inner reveal">
+      <p class="features-heading">Everything you need for a comfortable stay.</p>
+      <ul class="features-list">
+        <li>Sleeps up to six guests</li>
+        <li>Three bedrooms</li>
+        <li>Two bathrooms</li>
+        <li>Fully equipped kitchen</li>
+        <li>Comfortable living and dining area</li>
+        <li>Complimentary Wi-Fi</li>
+        <li>Netflix</li>
+        <li>Board games</li>
+        <li>Outdoor seating</li>
+        <li>BBQ</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── 05 Life Here ───────────────────────────────────────────── -->
   <section class="life" id="life" aria-labelledby="life-heading">
     <div class="life-header reveal">
       <span class="label life-label">The rhythm of this place</span>
@@ -881,9 +944,9 @@
     <div class="explore-inner">
       <div class="explore-header">
         <h2 class="explore-headline reveal" id="explore-heading">
-          48 hours<br>in <em>Inishowen</em>
+          See more of<br><em>Inishowen</em>
         </h2>
-        <p class="explore-intro-text reveal delay-1">Moville sits at the gateway to the Inishowen Peninsula — one of Ireland's least visited and most extraordinary corners. The house is the base. Everything else follows. Walk first. Eat well. Swim if the season allows.</p>
+        <p class="explore-intro-text reveal delay-1">From coastal walks and beaches to Malin Head and nearby villages, 55 Malin Road is well placed for discovering one of Ireland's most beautiful corners.</p>
       </div>
       <div class="explore-grid">
         <article class="explore-card reveal">
@@ -929,9 +992,9 @@
       <div class="booking-text reveal">
         <span class="label booking-label">Book the house</span>
         <h2 class="booking-headline" id="book-heading">
-          When would you<br>like to <em>arrive?</em>
+          Planning<br>your <em>stay?</em>
         </h2>
-        <p class="booking-copy">55 Malin Road is available as a whole house — three bedrooms, sleeps six. Send us your dates and we'll come back to you within the day. You can also find us on Airbnb if you'd prefer to book directly there.</p>
+        <p class="booking-copy">Check availability or get in touch — we'd be delighted to welcome you to 55 Malin Road.</p>
       </div>
       <div class="booking-form reveal delay-1" role="form" aria-label="Availability enquiry">
         <div class="form-row">
