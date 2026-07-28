@@ -27,9 +27,16 @@ download_img() {
   fi
 
   echo "  → ${name}.jpg  (unsplash:${id})"
-  curl -sL --fail \
+  curl -sL \
     "https://unsplash.com/photos/${id}/download?force=true" \
     -o "$dest"
+
+  # Verify the file is actually an image (not an HTML error/login page)
+  if ! file "$dest" 2>/dev/null | grep -qiE "jpeg|image"; then
+    echo "  ✗ ${name}.jpg failed (not an image — photo may require Unsplash login)"
+    rm -f "$dest"
+    return
+  fi
 
   # Resize longest edge to max_px using macOS built-in sips (no ImageMagick needed)
   sips -Z "$max_px" "$dest" > /dev/null 2>&1 || true
@@ -47,8 +54,8 @@ download_img "-m0t5fmOGoM"    "hero"                   2400
 download_img "Twke63oNYM0"    "intro"                  1200
 
 # ── The House — rooms ─────────────────────────────────────────────────────────
-# Atlantic Room: sunlight streaming into a simple bedroom
-download_img "YapwaZLJJPc"    "room-atlantic"          1600
+# Atlantic Room: rumpled white duvet and pillows on a bed, soft light
+download_img "9IFbmglOszs"    "room-atlantic"          1600
 
 # Garden Room: neatly made bed with white linen
 download_img "ooDvIpnXkwo"    "room-garden"            1600
