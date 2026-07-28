@@ -81,15 +81,16 @@
 
     .nav-logo {
       font-family: var(--f-body);
-      font-weight: 300;
+      font-weight: 400;
       font-size: .7rem;
       letter-spacing: .2em;
       text-transform: uppercase;
-      color: rgba(255,255,255,.9);
+      color: rgba(255,255,255,.95);
       white-space: nowrap;
-      transition: color .4s ease;
+      transition: color .4s ease, text-shadow .4s ease;
+      text-shadow: 0 1px 8px rgba(0,0,0,.55);
     }
-    .nav.is-solid .nav-logo { color: var(--peat); }
+    .nav.is-solid .nav-logo { color: var(--peat); text-shadow: none; }
 
     .nav-links { list-style: none; display: flex; gap: 2.5rem; }
     .nav-links a {
@@ -118,9 +119,10 @@
     .nav-toggle span {
       display: block;
       width: 22px; height: 1px;
-      background: rgba(255,255,255,.85);
+      background: rgba(255,255,255,.95);
       transition: transform .35s var(--ease-out), opacity .25s ease, background .4s ease;
       transform-origin: center;
+      filter: drop-shadow(0 1px 4px rgba(0,0,0,.5));
     }
     .nav.is-solid .nav-toggle span { background: var(--peat); }
     .nav-toggle.is-open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
@@ -176,8 +178,8 @@
       content: '';
       position: absolute; inset: 0;
       background: linear-gradient(to bottom,
-        rgba(12,9,8,.28) 0%,
-        rgba(12,9,8,.04) 38%,
+        rgba(12,9,8,.52) 0%,
+        rgba(12,9,8,.04) 35%,
         rgba(12,9,8,.72) 100%);
     }
     /* Headline always over the photo */
