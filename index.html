@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>55 Malin Road — Inishowen, Donegal</title>
-  <meta name="description" content="A house at the edge of everything. Two rooms on the Inishowen Peninsula, Donegal. Facing the Atlantic.">
+  <meta name="description" content="A comfortable three-bedroom holiday home in Moville, on the Inishowen Peninsula. Sleeps six. Private hot tub.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
@@ -241,16 +241,16 @@
     .intro-image:hover img { transform: scale(1.04); }
 
     /* ─── 03 The House ────────────────────────────────────────────── */
-    .house { padding-bottom: clamp(5rem,10vw,11rem); }
+    .house { padding-bottom: 0; }
 
     .house-header {
-      padding: 0 3rem clamp(4rem,7vw,7rem);
+      padding: clamp(4rem,8vw,9rem) 3rem clamp(3rem,5vw,5rem);
       max-width: 1440px;
       margin: 0 auto;
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 3rem;
+      display: grid;
+      grid-template-columns: 5fr 3fr;
+      gap: clamp(3rem,6vw,7rem);
+      align-items: end;
     }
     .house-headline {
       font-family: var(--f-display);
@@ -259,20 +259,18 @@
       line-height: .95;
       letter-spacing: -.025em;
     }
-    .house-subtext {
-      font-size: .8rem;
-      line-height: 1.7;
-      color: var(--mist);
-      max-width: 200px;
-      text-align: right;
-      letter-spacing: .04em;
+    .house-chapter-lead {
+      font-size: .9rem;
+      line-height: 1.9;
+      color: var(--peat-light);
+      padding-bottom: .4rem;
     }
 
-    /* Room layout */
+    /* Room layout — shared by all house panels */
     .room {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      min-height: 88vh;
+      min-height: 80vh;
     }
     .room + .room { margin-top: 2px; }
     .room--reverse { direction: rtl; }
@@ -322,6 +320,10 @@
       max-width: 360px;
       margin-bottom: 3rem;
     }
+    .room-description + .room-description {
+      margin-top: -2rem;
+      margin-bottom: 3rem;
+    }
 
     .room-specs {
       border-top: 1px solid var(--border);
@@ -340,6 +342,126 @@
       letter-spacing: .1em;
       color: var(--mist);
       font-size: .62rem;
+    }
+
+    /* Callout — for hot tub / differentiator highlight */
+    .room-callout {
+      margin-bottom: 2rem;
+      padding: 1.2rem 1.4rem;
+      border-left: 2px solid var(--oak);
+      background: rgba(194,176,154,.07);
+    }
+    .room-callout-title {
+      font-size: .62rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--oak);
+      margin-bottom: .3rem;
+    }
+    .room-callout-body {
+      font-size: .82rem;
+      line-height: 1.7;
+      color: var(--peat-light);
+    }
+
+    /* Bedrooms sub-chapter header */
+    .bedrooms-break {
+      padding: clamp(3rem,6vw,6rem) 3rem clamp(1.5rem,3vw,2rem);
+      max-width: 1440px;
+      margin: 0 auto;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 3rem;
+      border-top: 1px solid var(--border);
+    }
+    .bedrooms-break-title {
+      font-family: var(--f-display);
+      font-weight: 300;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      line-height: 1.15;
+      letter-spacing: -.01em;
+    }
+    .bedrooms-break-title em { font-style: italic; }
+    .bedrooms-break-note {
+      font-size: .8rem;
+      color: var(--mist);
+      letter-spacing: .04em;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    /* ─── Practical Comforts ──────────────────────────────────────── */
+    .comforts {
+      background: var(--peat);
+      color: var(--limestone);
+      padding: clamp(4rem,8vw,8rem) 3rem;
+    }
+    .comforts-inner { max-width: 1440px; margin: 0 auto; }
+
+    .comforts-header {
+      display: grid;
+      grid-template-columns: 5fr 3fr;
+      gap: clamp(3rem,6vw,7rem);
+      align-items: end;
+      margin-bottom: clamp(3rem,5vw,5rem);
+    }
+    .comforts-heading {
+      font-family: var(--f-display);
+      font-weight: 300;
+      font-size: clamp(2rem, 3.5vw, 3.2rem);
+      letter-spacing: -.01em;
+      color: var(--limestone);
+      line-height: 1.15;
+    }
+    .comforts-subtext {
+      font-size: .82rem;
+      line-height: 1.85;
+      color: rgba(240,235,227,.45);
+      padding-bottom: .3rem;
+    }
+
+    .comforts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 1px;
+      background: rgba(253,252,250,.07);
+    }
+    .comfort-item {
+      padding: 1.8rem 1.4rem 1.6rem;
+      background: var(--peat);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: background .3s ease;
+    }
+    .comfort-item:hover { background: var(--peat-mid); }
+    .comfort-icon {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+    .comfort-icon svg {
+      width: 100%;
+      height: 100%;
+      stroke: var(--oak);
+      fill: none;
+      stroke-width: 1.4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .comfort-label {
+      font-size: .72rem;
+      letter-spacing: .04em;
+      color: rgba(240,235,227,.7);
+      line-height: 1.45;
+    }
+    .comfort-detail {
+      font-size: .6rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(240,235,227,.28);
+      margin-top: -.4rem;
     }
 
     /* ─── 04 Life Here ────────────────────────────────────────────── */
@@ -607,39 +729,6 @@
     }
     .btn-enquire:hover .btn-enquire-arrow { width: 32px; }
 
-    /* ─── Features ───────────────────────────────────────────────── */
-    .features {
-      padding: clamp(4rem,8vw,8rem) 3rem;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-    .features-inner {
-      max-width: 1440px;
-      margin: 0 auto;
-    }
-    .features-heading {
-      font-family: var(--f-display);
-      font-weight: 300;
-      font-size: clamp(1.4rem, 2.2vw, 1.9rem);
-      color: var(--mist);
-      letter-spacing: -.005em;
-      margin-bottom: 2.8rem;
-    }
-    .features-list {
-      list-style: none;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      column-gap: 3rem;
-    }
-    .features-list li {
-      font-size: .78rem;
-      line-height: 1.6;
-      padding: .75rem 0;
-      border-top: 1px solid var(--border);
-      letter-spacing: .03em;
-      color: var(--peat-light);
-    }
-
     /* ─── Footer ──────────────────────────────────────────────────── */
     footer {
       padding: 3.5rem 3rem;
@@ -681,41 +770,46 @@
 
     /* ─── Responsive ──────────────────────────────────────────────── */
     @media (max-width: 1024px) {
-      .introduction   { grid-template-columns: 1fr; gap: 3rem; }
-      .intro-image    { max-width: 520px; }
-      .house-header   { flex-direction: column; align-items: flex-start; }
-      .house-subtext  { text-align: left; max-width: 100%; }
-      .room           { grid-template-columns: 1fr; min-height: auto; }
-      .room--reverse  { direction: ltr; }
-      .room-image     { aspect-ratio: 16/10; }
-      .life-cell--a   { grid-column: 1 / 13; }
-      .life-cell--b   { grid-column: 1 / 13; grid-row: auto; aspect-ratio: 16/10; }
-      .life-cell--c   { grid-column: 1 / 7; }
-      .life-cell--d   { grid-column: 7 / 13; }
-      .explore-header { grid-template-columns: 1fr; gap: 2rem; }
-      .explore-grid   { grid-template-columns: 1fr 1fr; }
+      .introduction      { grid-template-columns: 1fr; gap: 3rem; }
+      .intro-image       { max-width: 520px; }
+      .house-header      { grid-template-columns: 1fr; gap: 2rem; }
+      .room              { grid-template-columns: 1fr; min-height: auto; }
+      .room--reverse     { direction: ltr; }
+      .room-image        { aspect-ratio: 16/10; }
+      .bedrooms-break    { flex-direction: column; align-items: flex-start; }
+      .bedrooms-break-note { text-align: left; }
+      .comforts-header   { grid-template-columns: 1fr; gap: 2rem; }
+      .life-cell--a      { grid-column: 1 / 13; }
+      .life-cell--b      { grid-column: 1 / 13; grid-row: auto; aspect-ratio: 16/10; }
+      .life-cell--c      { grid-column: 1 / 7; }
+      .life-cell--d      { grid-column: 7 / 13; }
+      .explore-header    { grid-template-columns: 1fr; gap: 2rem; }
+      .explore-grid      { grid-template-columns: 1fr 1fr; }
       .explore-grid .explore-card:last-child { grid-column: 1 / 3; aspect-ratio: 16/8; }
-      .booking-inner  { grid-template-columns: 1fr; gap: 4rem; }
+      .booking-inner     { grid-template-columns: 1fr; gap: 4rem; }
     }
 
     @media (max-width: 680px) {
-      .nav            { padding: 1.4rem 1.5rem; }
-      .nav.is-solid   { padding: 1rem 1.5rem; }
-      .nav-links      { gap: 1.4rem; }
+      .nav               { padding: 1.4rem 1.5rem; }
+      .nav.is-solid      { padding: 1rem 1.5rem; }
+      .nav-links         { gap: 1.4rem; }
       .nav-links li:nth-child(3) { display: none; }
-      .landing-content { padding: 0 1.5rem 3.5rem; }
+      .landing-content   { padding: 0 1.5rem 3.5rem; }
       .introduction,
       .life, .explore, .booking { padding-left: 1.5rem; padding-right: 1.5rem; }
-      .house-header   { padding-left: 1.5rem; padding-right: 1.5rem; }
-      .room-content   { padding: 2.5rem 1.5rem; }
-      .explore-grid   { grid-template-columns: 1fr; }
+      .house-header      { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .bedrooms-break    { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .comforts          { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .room-content      { padding: 2.5rem 1.5rem; }
+      .comforts-grid     { grid-template-columns: repeat(2, 1fr); }
+      .explore-grid      { grid-template-columns: 1fr; }
       .explore-grid .explore-card:last-child { grid-column: auto; aspect-ratio: 3/4; }
       .life-cell--c, .life-cell--d { grid-column: 1 / 13; }
-      .form-row       { grid-template-columns: 1fr; }
-      .form-foot      { flex-direction: column; align-items: flex-start; }
-      footer          { padding: 3rem 1.5rem; }
-      .footer-inner   { flex-direction: column; text-align: center; }
-      .footer-right   { text-align: center; }
+      .form-row          { grid-template-columns: 1fr; }
+      .form-foot         { flex-direction: column; align-items: flex-start; }
+      footer             { padding: 3rem 1.5rem; }
+      .footer-inner      { flex-direction: column; text-align: center; }
+      .footer-right      { text-align: center; }
     }
   </style>
 </head>
@@ -734,7 +828,7 @@
 
   <!-- ── 01 Landing ─────────────────────────────────────────────── -->
   <section class="landing" aria-label="Welcome">
-    <div class="landing-bg" id="js-parallax" role="img" aria-label="55 Malin Road, Moville, Inishowen"></div>
+    <div class="landing-bg" id="js-parallax" role="img" aria-label="Moville, Inishowen Peninsula, Co. Donegal"></div>
     <div class="landing-content">
       <h1 class="landing-headline">
         A quieter way<br>to <em>stay.</em>
@@ -759,8 +853,8 @@
     </div>
     <div class="intro-image reveal delay-2">
       <img
-        src="images/intro.jpg"
-        alt="The open-plan living and dining space at 55 Malin Road"
+        src="images/house-exterior.jpg"
+        alt="55 Malin Road — the front of the house"
         loading="lazy"
       >
     </div>
@@ -770,23 +864,62 @@
 
   <!-- ── 03 The House ───────────────────────────────────────────── -->
   <section class="house" id="house" aria-labelledby="house-heading">
+
     <div class="house-header reveal">
-      <h2 class="house-headline" id="house-heading">The House</h2>
-      <p class="house-subtext">Three bedrooms.<br>Sleeps up to six.</p>
+      <div>
+        <h2 class="house-headline" id="house-heading">The House</h2>
+      </div>
+      <p class="house-chapter-lead">A guided tour of the space — from the living room to the outdoor terrace. Everything you need for a comfortable stay is here.</p>
     </div>
 
-    <!-- Room 01 -->
-    <article class="room">
+    <!-- Living Spaces -->
+    <article class="room" aria-label="Living spaces">
       <div class="room-image">
         <img
-          src="images/room-atlantic.jpg"
-          alt="The front bedroom — double bed, blackout curtains, toward Moville town"
+          src="https://static.wixstatic.com/media/53fe18_7708cb658b48408e9bc5f1d3d6cbe301~mv2.jpg/v1/fill/w_1400,h_1050,al_c,q_85,enc_auto/photo.jpg"
+          alt="The living and dining area at 55 Malin Road"
           loading="lazy"
         >
       </div>
       <div class="room-content reveal">
-        <span class="room-number">Room 01</span>
-        <h3 class="room-name">The <em>Front</em> Bedroom</h3>
+        <span class="room-number">Living Spaces</span>
+        <h3 class="room-name">Living<br>&amp; <em>Dining</em></h3>
+        <p class="room-description">A bright, comfortable living room and dining area — designed for relaxing after a day on the peninsula. Whether you're travelling as a family or a group of friends, there's space to cook, eat and spend time together.</p>
+        <div class="room-specs">
+          <div class="room-spec">
+            <span class="room-spec-key">Living room</span>
+            <span>Corner sofa &amp; open fire</span>
+          </div>
+          <div class="room-spec">
+            <span class="room-spec-key">Dining</span>
+            <span>Table for six</span>
+          </div>
+          <div class="room-spec">
+            <span class="room-spec-key">Entertainment</span>
+            <span>Smart TV &amp; Netflix</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Bedrooms sub-chapter header -->
+    <div class="bedrooms-break reveal">
+      <h3 class="bedrooms-break-title">Rest well.<br><em>Wake up ready.</em></h3>
+      <p class="bedrooms-break-note">Three bedrooms.<br>Sleeps up to six guests.</p>
+    </div>
+
+    <!-- Room 01 — Front Bedroom -->
+    <article class="room" aria-label="Front bedroom">
+      <div class="room-image">
+        <img
+          src="images/room-atlantic.jpg"
+          alt="The front bedroom at 55 Malin Road — double bed facing the street"
+          loading="lazy"
+        >
+      </div>
+      <div class="room-content reveal">
+        <span class="room-number">Bedroom 01</span>
+        <h3 class="room-name">The <em>Front</em><br>Bedroom</h3>
         <p class="room-description">A double room at the front of the house. Good mattress, proper linen, blackout curtains. The kind of room you fall asleep in without trying — and wake up in without wanting to leave.</p>
         <div class="room-specs">
           <div class="room-spec">
@@ -805,8 +938,8 @@
       </div>
     </article>
 
-    <!-- Room 02 -->
-    <article class="room room--reverse">
+    <!-- Room 02 — Garden Bedroom -->
+    <article class="room room--reverse" aria-label="Garden bedroom">
       <div class="room-image">
         <img
           src="images/room-garden.jpg"
@@ -815,8 +948,8 @@
         >
       </div>
       <div class="room-content reveal">
-        <span class="room-number">Room 02</span>
-        <h3 class="room-name">The <em>Garden</em> Bedroom</h3>
+        <span class="room-number">Bedroom 02</span>
+        <h3 class="room-name">The <em>Garden</em><br>Bedroom</h3>
         <p class="room-description">Quieter. Faces the garden. Morning light comes in from the east — soft enough to sleep through, good enough to read by. The room people tend to ask for again.</p>
         <div class="room-specs">
           <div class="room-spec">
@@ -835,23 +968,23 @@
       </div>
     </article>
 
-    <!-- Room 03 -->
-    <article class="room">
+    <!-- Room 03 — Twin Room -->
+    <article class="room" aria-label="Twin bedroom">
       <div class="room-image">
         <img
           src="images/room-third.jpg"
-          alt="The third bedroom — single and bunk beds, beach art on the walls"
+          alt="The twin bedroom at 55 Malin Road — two single beds"
           loading="lazy"
         >
       </div>
       <div class="room-content reveal">
-        <span class="room-number">Room 03</span>
-        <h3 class="room-name">The <em>Third</em> Bedroom</h3>
-        <p class="room-description">A flexible room at the back of the house. Single bed and bunk — right for younger guests, friends on a group trip, or anyone who doesn't need much convincing to sleep well.</p>
+        <span class="room-number">Bedroom 03</span>
+        <h3 class="room-name">The <em>Twin</em><br>Room</h3>
+        <p class="room-description">A flexible room at the back of the house. Two single beds — right for younger guests, friends on a group trip, or anyone who wants their own space within the house.</p>
         <div class="room-specs">
           <div class="room-spec">
             <span class="room-spec-key">Beds</span>
-            <span>Single + bunk</span>
+            <span>Two singles</span>
           </div>
           <div class="room-spec">
             <span class="room-spec-key">Outlook</span>
@@ -859,33 +992,209 @@
           </div>
           <div class="room-spec">
             <span class="room-spec-key">Sleeps</span>
-            <span>2–3 guests</span>
+            <span>2 guests</span>
           </div>
         </div>
       </div>
     </article>
+
+    <!-- Kitchen -->
+    <article class="room room--reverse" aria-label="Kitchen">
+      <div class="room-image">
+        <img
+          src="https://static.wixstatic.com/media/53fe18_88fab13e399b43d58250b6021fbe2343~mv2.jpg/v1/fill/w_1400,h_1050,al_c,q_85,enc_auto/photo.jpg"
+          alt="The fully equipped kitchen at 55 Malin Road"
+          loading="lazy"
+        >
+      </div>
+      <div class="room-content reveal">
+        <span class="room-number">The Kitchen</span>
+        <h3 class="room-name">Cook in<br>or <em>head out.</em></h3>
+        <p class="room-description">A fully equipped modern kitchen makes longer stays easy. Whether you're preparing breakfast before heading out or sharing dinner together after a day on the coast, everything you need is here.</p>
+        <p class="room-description">Moville's own cafés and restaurants are a short walk away — in either direction, you won't go hungry.</p>
+        <div class="room-specs">
+          <div class="room-spec">
+            <span class="room-spec-key">Equipment</span>
+            <span>Full modern kitchen</span>
+          </div>
+          <div class="room-spec">
+            <span class="room-spec-key">Dining</span>
+            <span>Open to living area</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Outdoor Living -->
+    <article class="room" aria-label="Outdoor living">
+      <div class="room-image">
+        <img
+          src="https://static.wixstatic.com/media/53fe18_1f1b497b94714ecaaf8fbe85c3502339~mv2.jpg/v1/fill/w_1400,h_1050,al_c,q_85,enc_auto/photo.jpg"
+          alt="The outdoor patio — seating, BBQ, and private hot tub"
+          loading="lazy"
+        >
+      </div>
+      <div class="room-content reveal">
+        <span class="room-number">Outdoor Living</span>
+        <h3 class="room-name">Slow evenings<br><em>outside.</em></h3>
+        <p class="room-description">Step outside to the private patio — outdoor seating, a BBQ, and a hot tub to end the day in. The perfect place to unwind after a long walk, or simply to sit with a drink as the light fades over Inishowen.</p>
+        <div class="room-callout">
+          <p class="room-callout-title">Private hot tub</p>
+          <p class="room-callout-body">Exclusively for guests of 55 Malin Road. Whether it's midsummer or a clear winter night, the tub is ready when you are.</p>
+        </div>
+        <div class="room-specs">
+          <div class="room-spec">
+            <span class="room-spec-key">Hot tub</span>
+            <span>Private, year-round</span>
+          </div>
+          <div class="room-spec">
+            <span class="room-spec-key">Outdoor seating</span>
+            <span>Patio with table &amp; chairs</span>
+          </div>
+          <div class="room-spec">
+            <span class="room-spec-key">BBQ</span>
+            <span>Included</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
   </section>
 
-  <!-- ── 04 Features ───────────────────────────────────────────── -->
-  <section class="features" aria-label="Property features">
-    <div class="features-inner reveal">
-      <p class="features-heading">Everything you need for a comfortable stay.</p>
-      <ul class="features-list">
-        <li>Sleeps up to six guests</li>
-        <li>Three bedrooms</li>
-        <li>Two bathrooms</li>
-        <li>Fully equipped kitchen</li>
-        <li>Comfortable living and dining area</li>
-        <li>Complimentary Wi-Fi</li>
-        <li>Netflix</li>
-        <li>Board games</li>
-        <li>Outdoor seating</li>
-        <li>BBQ</li>
-      </ul>
+  <!-- ── Practical Comforts ──────────────────────────────────────── -->
+  <section class="comforts" aria-label="Property amenities">
+    <div class="comforts-inner">
+      <div class="comforts-header reveal">
+        <h2 class="comforts-heading">Everything in one place.</h2>
+        <p class="comforts-subtext">A full summary of what's included at 55 Malin Road — for six guests, any time of year.</p>
+      </div>
+      <div class="comforts-grid reveal delay-1">
+
+        <div class="comfort-item">
+          <div class="comfort-icon">
+            <svg viewBox="0 0 24 24"><circle cx="9" cy="7" r="3"/><circle cx="17" cy="8" r="2.5"/><path d="M1 20c0-4 3.6-7 8-7s8 3 8 7"/><path d="M17 13c2.5.5 5 2.5 5 6" stroke-dasharray="3 0"/></svg>
+          </div>
+          <div>
+            <div class="comfort-label">Sleeps six guests</div>
+            <div class="comfort-detail">Maximum capacity</div>
+          </div>
+        </div>
+
+        <div class="comfort-item">
+          <div class="comfort-icon">
+            <svg viewBox="0 0 24 24"><path d="M2 9h20M2 9v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9"/><path d="M2 9V7a2 2 0 0 1 2-2h4v4"/><path d="M16 5h4a2 2 0 0 1 2 2v2"/><rect x="8" y="3" width="8" height="6" rx="1"/></svg>
+          </div>
+          <div>
+            <div class="comfort-label">Three bedrooms</div>
+            <div class="comfort-detail">2 doubles · 1 twin</div>
+          </div>
+        </div>
+
+        <div class="comfort-item">
+          <div class="comfort-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 12h16M4 6h16"/><path d="M5 6v16M19 6v4"/><path d="M5 18h10a4 4 0 0 0 4-4v-4"/></svg>
+          </div>
+          <div>
+            <div class="comfort-label">Two bathrooms</div>
+            <div class="comfort-detail">Full bathrooms</div>
+          </div>
+        </div>
+
+        <div class="comfort-item">
+          <div class="comfort-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="10" r="3"/><path d="M12 2C8 2 5 5.5 5 10c0 6 7 12 7 12s7-6 7-12c0-4.5-3-8-7-8z"/><circle cx="12" cy="10" r="1.5" fill="currentColor" stroke="none" opacity=".4"/></svg>
+          </div>
+          <div>
+            <div class="comfort-label">Town centre</div>
+            <div class="comfort-detail">Walk everywhere</div>
+          </div>
+        </div>
+
+        <div class="comfort-item">
+          <div class="comfort-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6 2 2 7 2 12s4 10 10 10 10-5 10-10S18 2 12 2z"/><path d="M12 6c0 0 3 2 3 6s-3 6-3 6"/><path d="M12 6c0 0-3 2-3 6s3 6 3 6"/><line x1="2.5" y1="12" x2="21.5" y2="12"/></svg>
+          </div>
+          <div>
+            <div class="comfort-label">Private hot tub</div>
+            <div class="comfort-detail">Year-round</div>
+          </div>
+        </div>
+
+        <div class="comfort-item">
+          <div class="comfort-icon">
+            <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1" fill="currentColor" stroke="none"/></svg>
+          </div>
+          <div>
+            <div class="comfort-label">Free Wi-Fi</div>
+            <div class="comfort-detail">Complimentary</div>
+          </div>
+        </div>
+
+        <div class="comfort-item">
+          <div class="comfort-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M8 21h8M12 19v2"/></svg>
+          </div>
+          <div>
+            <div class="comfort-label">Netflix</div>
+            <div class="comfort-detail">Smart TV</div>
+          </div>
+        </div>
+
+        <div class="comfort-item">
+          <div class="comfort-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
+          </div>
+          <div>
+            <div class="comfort-label">Self check-in</div>
+            <div class="comfort-detail">Flexible arrival</div>
+          </div>
+        </div>
+
+        <div class="comfort-item">
+          <div class="comfort-icon">
+            <svg viewBox="0 0 24 24"><path d="M6 2v20M18 2v20M3 7h18M3 17h18"/></svg>
+          </div>
+          <div>
+            <div class="comfort-label">Board games</div>
+            <div class="comfort-detail">Collection included</div>
+          </div>
+        </div>
+
+        <div class="comfort-item">
+          <div class="comfort-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div>
+            <div class="comfort-label">Fully equipped kitchen</div>
+            <div class="comfort-detail">Everything included</div>
+          </div>
+        </div>
+
+        <div class="comfort-item">
+          <div class="comfort-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="6" r="2"/><path d="M12 8v8M8 22c0-4 2-6 4-6s4 2 4 6"/><path d="M7 12h10"/></svg>
+          </div>
+          <div>
+            <div class="comfort-label">Outdoor seating</div>
+            <div class="comfort-detail">Private patio</div>
+          </div>
+        </div>
+
+        <div class="comfort-item">
+          <div class="comfort-icon">
+            <svg viewBox="0 0 24 24"><path d="M8.5 2a6.5 6.5 0 0 0 0 13H9"/><path d="M15.5 9a6.5 6.5 0 0 1 0 13H15"/><line x1="12" y1="6" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="18"/><line x1="5" y1="12" x2="12" y2="12"/><line x1="12" y1="12" x2="19" y2="12"/></svg>
+          </div>
+          <div>
+            <div class="comfort-label">BBQ</div>
+            <div class="comfort-detail">Outdoor grill</div>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
 
-  <!-- ── 05 Life Here ───────────────────────────────────────────── -->
+  <!-- ── 04 Life Here ───────────────────────────────────────────── -->
   <section class="life" id="life" aria-labelledby="life-heading">
     <div class="life-header reveal">
       <span class="label life-label">The rhythm of this place</span>
@@ -895,7 +1204,7 @@
       <div class="life-cell life-cell--a reveal" role="listitem">
         <img
           src="images/life-coffee.jpg"
-          alt="Red's Coffee, Moville — two flat whites on the counter"
+          alt="Red's Coffee, Moville — a five-minute walk from the house"
           loading="lazy"
         >
         <div class="life-caption" aria-hidden="true">
@@ -906,34 +1215,34 @@
       <div class="life-cell life-cell--b reveal delay-1" role="listitem">
         <img
           src="images/life-storms.jpg"
-          alt="Atlantic storms from the window"
+          alt="Watching storms from Malin Head — the Atlantic in winter"
           loading="lazy"
         >
         <div class="life-caption" aria-hidden="true">
           <span class="life-caption-title">Watching storms</span>
-          <span class="life-caption-note">The Atlantic in November.</span>
+          <span class="life-caption-note">Malin Head. 45 minutes north.</span>
         </div>
       </div>
       <div class="life-cell life-cell--c reveal delay-1" role="listitem">
         <img
           src="images/life-coast.jpg"
-          alt="The back garden at 55 Malin Road — outdoor seating and BBQ"
+          alt="The coast of Inishowen — walks from the front door"
           loading="lazy"
         >
         <div class="life-caption" aria-hidden="true">
-          <span class="life-caption-title">The garden</span>
-          <span class="life-caption-note">Hot tub. BBQ. Open sky.</span>
+          <span class="life-caption-title">The coast</span>
+          <span class="life-caption-note">Inishowen from the water's edge.</span>
         </div>
       </div>
       <div class="life-cell life-cell--d reveal delay-2" role="listitem">
         <img
           src="images/life-fire.jpg"
-          alt="The living room at 55 Malin Road — corner sofa and open fire"
+          alt="The living room at 55 Malin Road — corner sofa and fire"
           loading="lazy"
         >
         <div class="life-caption" aria-hidden="true">
           <span class="life-caption-title">By the fire</span>
-          <span class="life-caption-note">A corner sofa and an open fire.</span>
+          <span class="life-caption-note">A corner sofa. Nowhere to be.</span>
         </div>
       </div>
     </div>
@@ -967,14 +1276,14 @@
             loading="lazy"
           >
           <div class="explore-overlay">
-            <span class="explore-tag">Walking</span>
+            <span class="explore-tag">45 minutes north</span>
             <h3 class="explore-title">Malin<br><em>Head</em></h3>
           </div>
         </article>
         <article class="explore-card reveal delay-2">
           <img
             src="images/explore-moville.jpg"
-            alt="Moville from above at sunset — Lough Foyle and the Inishowen Peninsula"
+            alt="Moville from above — Lough Foyle and the Inishowen Peninsula"
             loading="lazy"
           >
           <div class="explore-overlay">
