@@ -362,16 +362,26 @@
     .room-spec  { display: flex; justify-content: space-between; font-size: .7rem; letter-spacing: .03em; }
     .room-spec-key { text-transform: uppercase; letter-spacing: .1em; color: var(--mist); font-size: .62rem; }
 
-    /* Amenities strip */
-    .amenities {
-      padding: clamp(2.5rem,4vw,4rem) 3rem;
+    /* ─── Facilities grid ─── */
+    .facilities { background: var(--peat); margin-top: 2px; }
+    .facilities-inner {
       max-width: 1440px; margin: 0 auto;
-      border-top: 1px solid var(--border);
-      display: flex; flex-wrap: wrap;
-      gap: .6rem 2.5rem;
+      padding: clamp(3rem,5vw,5rem) 3rem;
     }
-    .amenity { font-size: .8rem; letter-spacing: .03em; color: var(--peat-light); }
-    .amenity::before { content: '—'; color: var(--oak); margin-right: .55rem; }
+    .facilities-label { color: rgba(154,147,140,.55); margin-bottom: 2.5rem; }
+    .facilities-grid {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 1px;
+      background: rgba(253,252,250,.06);
+    }
+    .facility {
+      background: var(--peat);
+      padding: 1.8rem 1.6rem 2rem;
+      display: flex; flex-direction: column; gap: .9rem;
+    }
+    .facility-icon svg { display: block; width: 20px; height: 20px; stroke: var(--oak); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .facility-name { font-size: .72rem; letter-spacing: .05em; color: rgba(240,235,227,.65); line-height: 1.5; }
 
     /* ─── 04 Outside ─── */
     .outside { display: grid; grid-template-columns: 1fr 1fr; min-height: 80vh; margin-top: 2px; }
@@ -409,6 +419,36 @@
     .outside-specs { border-top: 1px solid rgba(253,252,250,.1); padding-top: 1.6rem; display: grid; gap: .6rem; }
     .outside-spec  { display: flex; justify-content: space-between; font-size: .7rem; color: rgba(240,235,227,.6); }
     .outside-spec-key { text-transform: uppercase; letter-spacing: .1em; color: rgba(154,147,140,.7); font-size: .62rem; }
+
+    /* ─── Life Here ─── */
+    .life { padding: clamp(5rem,10vw,10rem) 3rem; border-top: 1px solid var(--border); }
+    .life-inner { max-width: 1440px; margin: 0 auto; }
+    .life-header { margin-bottom: clamp(3rem,5vw,5rem); display: flex; align-items: flex-end; justify-content: space-between; gap: 4rem; }
+    .life-headline {
+      font-family: var(--f-display);
+      font-weight: 300;
+      font-size: clamp(2.4rem,4.5vw,4.4rem);
+      line-height: 1.05;
+      letter-spacing: -.02em;
+    }
+    .life-headline em { font-style: italic; }
+    .life-intro { font-size: 1rem; line-height: 1.85; color: var(--peat-light); max-width: 320px; flex-shrink: 0; }
+    .life-grid {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: clamp(1rem,1.5vw,1.5rem);
+    }
+    .life-card-image { aspect-ratio: 3/4; overflow: hidden; margin-bottom: 1rem; }
+    .life-card-image img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 10s ease; }
+    .life-card:hover .life-card-image img { transform: scale(1.04); }
+    .life-card-caption {
+      font-family: var(--f-display);
+      font-style: italic;
+      font-weight: 300;
+      font-size: 1.05rem;
+      line-height: 1.4;
+      color: var(--peat-light);
+    }
 
     /* ─── 05 Explore ─── */
     .explore { padding: clamp(5rem,10vw,10rem) 3rem; border-top: 1px solid var(--border); }
@@ -463,7 +503,18 @@
       margin-bottom: 2rem;
     }
     .booking-headline em { font-style: italic; }
-    .booking-copy { font-size: .97rem; line-height: 1.85; color: rgba(240,235,227,.6); }
+    .booking-copy { font-size: .97rem; line-height: 1.85; color: rgba(240,235,227,.6); margin-bottom: 1.8rem; }
+    .booking-airbnb-link {
+      display: inline-flex; align-items: center; gap: .7rem;
+      font-size: .7rem; letter-spacing: .12em; text-transform: uppercase;
+      color: rgba(240,235,227,.4);
+      border-bottom: 1px solid rgba(240,235,227,.12);
+      padding-bottom: .2rem;
+      transition: color .3s ease, border-color .3s ease;
+    }
+    .booking-airbnb-link:hover { color: rgba(240,235,227,.75); border-bottom-color: rgba(240,235,227,.3); }
+    .booking-airbnb-arrow { transition: transform .3s var(--ease-out); }
+    .booking-airbnb-link:hover .booking-airbnb-arrow { transform: translateX(4px); }
 
     .booking-form { display: flex; flex-direction: column; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; margin-bottom: 1px; }
@@ -513,6 +564,8 @@
     @media (max-width: 1200px) {
       .explore-grid          { grid-template-columns: repeat(2,1fr); }
       .explore-card--feature { grid-column: 1 / -1; aspect-ratio: 16/7; }
+      .life-grid             { grid-template-columns: repeat(2,1fr); }
+      .facilities-grid       { grid-template-columns: repeat(4,1fr); }
     }
 
     @media (max-width: 1024px) {
@@ -525,8 +578,11 @@
       .room-image      { aspect-ratio: 16/10; }
       .outside         { grid-template-columns: 1fr; min-height: auto; }
       .outside-image   { aspect-ratio: 16/9; }
+      .life-header     { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+      .life-intro      { max-width: 100%; }
       .explore-header  { grid-template-columns: 1fr; gap: 2rem; }
       .booking-inner   { grid-template-columns: 1fr; gap: 4rem; }
+      .facilities-grid { grid-template-columns: repeat(4,1fr); }
     }
 
     @media (max-width: 680px) {
@@ -550,12 +606,14 @@
       .landing-scroll{ display: none; }
 
       /* Sections */
-      .intro, .explore, .booking { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .intro, .explore, .booking, .life { padding-left: 1.5rem; padding-right: 1.5rem; }
       .house-header { padding-left: 1.5rem; padding-right: 1.5rem; }
-      .bedrooms     { padding-left: 1.5rem; padding-right: 1.5rem; }
-      .amenities    { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .bedrooms     { padding-left: 0; padding-right: 0; }
+      .facilities-inner { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .facilities-grid  { grid-template-columns: repeat(2,1fr); }
       .room-content    { padding: 2.5rem 1.5rem; }
       .outside-content { padding: 2.5rem 1.5rem; }
+      .life-grid     { grid-template-columns: repeat(2,1fr); }
       .explore-grid  { grid-template-columns: 1fr 1fr; }
       .form-row      { grid-template-columns: 1fr; }
       .form-foot     { flex-direction: column; align-items: flex-start; }
@@ -567,6 +625,7 @@
     @media (max-width: 420px) {
       .explore-grid          { grid-template-columns: 1fr; }
       .explore-card--feature { aspect-ratio: 4/3; }
+      .life-grid             { grid-template-columns: 1fr; }
     }
 
   </style>
@@ -736,18 +795,57 @@
 
     </div>
 
-    <!-- Amenities -->
-    <div class="amenities reveal">
-      <span class="amenity">Sleeps up to six</span>
-      <span class="amenity">Two bathrooms</span>
-      <span class="amenity">Free Wi-Fi</span>
-      <span class="amenity">Smart TV &amp; Netflix</span>
-      <span class="amenity">Self check-in</span>
-      <span class="amenity">Board games</span>
-      <span class="amenity">Town centre location</span>
-    </div>
-
   </section>
+
+  <!-- Facilities -->
+  <div class="facilities reveal">
+    <div class="facilities-inner">
+      <span class="label facilities-label">What's included</span>
+      <div class="facilities-grid">
+
+        <div class="facility">
+          <span class="facility-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+          <span class="facility-name">Sleeps six</span>
+        </div>
+
+        <div class="facility">
+          <span class="facility-icon"><svg viewBox="0 0 24 24"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg></span>
+          <span class="facility-name">Three bedrooms</span>
+        </div>
+
+        <div class="facility">
+          <span class="facility-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg></span>
+          <span class="facility-name">Two bathrooms</span>
+        </div>
+
+        <div class="facility">
+          <span class="facility-icon"><svg viewBox="0 0 24 24"><path d="M12 22C6.48 22 2 17.52 2 12S6.48 2 12 2s10 4.48 10 10-4.48 10-10 10z"/><path d="M12 8v4l3 3"/></svg></span>
+          <span class="facility-name">Private hot tub</span>
+        </div>
+
+        <div class="facility">
+          <span class="facility-icon"><svg viewBox="0 0 24 24"><path d="M12 2c-1.5 3-2 5-1 7-2-1-4-3-3-6C5 5 3 8 4 11c-1.5-1-2-2-2-4C1 11 3 16 8 18c-.5 1-1.5 1.5-2.5 1.5C7 21 9.5 22 12 22s5-1 6.5-2.5C17.5 19.5 16.5 19 16 18c5-2 7-7 5-11-0-2-0.5-1-2 0 1-3-1-6-4-7 1 3 0 5-1 6 1-2 0-4-2-5z"/></svg></span>
+          <span class="facility-name">Open fire</span>
+        </div>
+
+        <div class="facility">
+          <span class="facility-icon"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg></span>
+          <span class="facility-name">Free Wi-Fi</span>
+        </div>
+
+        <div class="facility">
+          <span class="facility-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>
+          <span class="facility-name">Smart TV &amp; Netflix</span>
+        </div>
+
+        <div class="facility">
+          <span class="facility-icon"><svg viewBox="0 0 24 24"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg></span>
+          <span class="facility-name">Self check-in</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
 
   <!-- ── 04 Outside ── -->
   <section class="outside" id="outside" aria-labelledby="outside-heading">
@@ -772,6 +870,49 @@
         <div class="outside-spec"><span class="outside-spec-key">Hot tub</span><span>Private, year-round</span></div>
         <div class="outside-spec"><span class="outside-spec-key">Seating</span><span>Patio with table &amp; chairs</span></div>
         <div class="outside-spec"><span class="outside-spec-key">BBQ</span><span>Included</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Life Here ── -->
+  <section class="life" aria-labelledby="life-heading">
+    <div class="life-inner">
+      <div class="life-header">
+        <h2 class="life-headline reveal" id="life-heading">
+          Life<br><em>here.</em>
+        </h2>
+        <p class="life-intro reveal delay-1">Moville is a small town on a quiet peninsula. The following four images answer the questions guests most often ask.</p>
+      </div>
+      <div class="life-grid">
+
+        <div class="life-card reveal">
+          <div class="life-card-image">
+            <img src="images/life-coffee.jpg" alt="Morning coffee in Moville — Norrie's Coffee Shop" loading="lazy">
+          </div>
+          <p class="life-card-caption">Is there somewhere good<br>for a slow morning?</p>
+        </div>
+
+        <div class="life-card reveal delay-1">
+          <div class="life-card-image">
+            <img src="images/life-coastal.jpg" alt="Five Fingers Strand from above, Inishowen" loading="lazy" style="object-position: center 30%;">
+          </div>
+          <p class="life-card-caption">Is there a proper<br>beach nearby?</p>
+        </div>
+
+        <div class="life-card reveal delay-1">
+          <div class="life-card-image">
+            <img src="images/life-storms.jpg" alt="Atlantic storms at Malin Head, Co. Donegal" loading="lazy" style="object-position: center 40%;">
+          </div>
+          <p class="life-card-caption">Is there somewhere<br>dramatic to go?</p>
+        </div>
+
+        <div class="life-card reveal delay-2">
+          <div class="life-card-image">
+            <img src="images/explore-golf.jpg" alt="Greencastle Golf Club on the shores of Lough Foyle" loading="lazy" style="object-position: center 60%;">
+          </div>
+          <p class="life-card-caption">What does the wider<br>area look like?</p>
+        </div>
+
       </div>
     </div>
   </section>
@@ -839,7 +980,11 @@
         <h2 class="booking-headline" id="book-heading">
           Planning<br>your <em>stay?</em>
         </h2>
-        <p class="booking-copy">Check availability or get in touch directly. We'd be glad to welcome you to 55 Malin Road.</p>
+        <p class="booking-copy">Enquire directly — no platform fees — or book through Airbnb if you prefer the added security of their payment system. The house is the same either way.</p>
+        <a href="https://www.airbnb.com" class="booking-airbnb-link" target="_blank" rel="noopener">
+          Also available on Airbnb
+          <span class="booking-airbnb-arrow">→</span>
+        </a>
       </div>
       <div class="booking-form reveal delay-1" role="form" aria-label="Availability enquiry">
         <div class="form-row">
