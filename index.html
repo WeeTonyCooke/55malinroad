@@ -214,6 +214,20 @@
       max-width: 440px;
       margin-bottom: 2rem;
     }
+    .landing-cta {
+      display: inline-block;
+      margin-bottom: 2rem;
+      padding: .8rem 2rem;
+      border: 1px solid rgba(255,255,255,.55);
+      font-size: .65rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.9);
+      text-shadow: 0 1px 6px rgba(0,0,0,.4);
+      transition: background .3s ease, border-color .3s ease, color .3s ease;
+    }
+    .landing-cta:hover { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.8); }
+
     .landing-scroll { display: flex; align-items: center; gap: .9rem; }
     .landing-scroll-line  { display: block; width: 36px; height: 1px; background: rgba(255,255,255,.4); }
     .landing-scroll-text  { font-size: .6rem; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.6); }
@@ -605,6 +619,8 @@
         background: var(--limestone);
       }
       .landing-sub   { color: var(--peat-light); max-width: 100%; }
+      .landing-cta   { border-color: rgba(26,23,20,.35); color: var(--peat); text-shadow: none; }
+      .landing-cta:hover { background: rgba(26,23,20,.06); border-color: var(--peat); }
       .landing-scroll{ display: none; }
 
       /* Sections */
@@ -670,6 +686,7 @@
     </div>
     <div class="landing-content">
       <p class="landing-sub">A comfortable three-bedroom holiday home in the heart of Moville. A relaxed base for exploring the Inishowen Peninsula.</p>
+      <a href="#book" class="landing-cta">Check availability</a>
       <div class="landing-scroll" aria-hidden="true">
         <span class="landing-scroll-line"></span>
         <span class="landing-scroll-text">Scroll to explore</span>
