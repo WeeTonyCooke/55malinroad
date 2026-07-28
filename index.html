@@ -11,7 +11,7 @@
   <style>
     /* ─── Design Tokens ───────────────────────────────────────────── */
     :root {
-      --limestone:   #F0EBE3;
+      --limestone:   #EFEFED;
       --limestone-2: #E8E2D9;
       --peat:        #1A1714;
       --peat-mid:    #2C2824;
@@ -38,7 +38,7 @@
       background: var(--limestone);
       color: var(--peat);
       font-family: var(--f-body);
-      font-weight: 300;
+      font-weight: 400;
       line-height: 1.7;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
@@ -101,6 +101,7 @@
       text-transform: uppercase;
       color: rgba(255,255,255,.9);
       transition: color .4s ease;
+      white-space: nowrap;
     }
     .nav.is-solid .nav-logo { color: var(--peat); }
 
@@ -115,10 +116,83 @@
       text-transform: uppercase;
       color: rgba(255,255,255,.7);
       transition: color .3s ease;
+      white-space: nowrap;
     }
     .nav.is-solid .nav-links a { color: var(--mist); }
     .nav-links a:hover,
     .nav.is-solid .nav-links a:hover { color: var(--peat); }
+
+    /* Hamburger toggle (mobile only) */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 28px;
+      height: 28px;
+      padding: 0;
+      cursor: pointer;
+      z-index: 210;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 1px;
+      background: rgba(255,255,255,.85);
+      transition: transform .35s var(--ease-out), opacity .25s ease, background .4s ease;
+      transform-origin: center;
+    }
+    .nav.is-solid .nav-toggle span { background: var(--peat); }
+    .nav-toggle.is-open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .nav-toggle.is-open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-toggle.is-open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+    /* Mobile nav drawer */
+    .nav-drawer {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 205;
+    }
+    .nav-drawer-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(12,9,8,.55);
+      opacity: 0;
+      transition: opacity .35s ease;
+    }
+    .nav-drawer-panel {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: min(75vw, 280px);
+      background: var(--peat);
+      display: flex;
+      flex-direction: column;
+      padding: 5rem 2rem 3rem;
+      transform: translateX(100%);
+      transition: transform .4s var(--ease-out);
+    }
+    .nav-drawer.is-open { display: block; }
+    .nav-drawer.is-open .nav-drawer-overlay { opacity: 1; }
+    .nav-drawer.is-open .nav-drawer-panel { transform: none; }
+    .nav-drawer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+    }
+    .nav-drawer-links a {
+      display: block;
+      font-size: .8rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(253,252,250,.75);
+      padding: 1.1rem 0;
+      border-bottom: 1px solid rgba(253,252,250,.08);
+      transition: color .25s ease;
+    }
+    .nav-drawer-links a:hover { color: var(--limestone); }
 
     /* ─── 01 Landing ──────────────────────────────────────────────── */
     .landing {
@@ -221,8 +295,8 @@
     .intro-headline em { font-style: italic; }
 
     .intro-body {
-      font-size: .93rem;
-      line-height: 1.9;
+      font-size: 1rem;
+      line-height: 1.85;
       color: var(--peat-light);
       max-width: 440px;
     }
@@ -260,8 +334,8 @@
       letter-spacing: -.025em;
     }
     .house-chapter-lead {
-      font-size: .9rem;
-      line-height: 1.9;
+      font-size: .97rem;
+      line-height: 1.85;
       color: var(--peat-light);
       padding-bottom: .4rem;
     }
@@ -314,8 +388,8 @@
     .room-name em { font-style: italic; }
 
     .room-description {
-      font-size: .9rem;
-      line-height: 1.95;
+      font-size: .97rem;
+      line-height: 1.85;
       color: var(--peat-light);
       max-width: 360px;
       margin-bottom: 3rem;
@@ -575,13 +649,17 @@
 
     .explore-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 3px;
     }
     .explore-card {
       position: relative;
       overflow: hidden;
       aspect-ratio: 3/4;
+    }
+    .explore-card--feature {
+      grid-column: 1 / -1;
+      aspect-ratio: 21/8;
     }
     .explore-card img {
       width: 100%;
@@ -774,6 +852,11 @@
     .footer-right a:hover { color: var(--peat); }
 
     /* ─── Responsive ──────────────────────────────────────────────── */
+    @media (max-width: 1200px) {
+      .explore-grid            { grid-template-columns: repeat(2, 1fr); }
+      .explore-card--feature   { grid-column: 1 / -1; aspect-ratio: 16/7; }
+    }
+
     @media (max-width: 1024px) {
       .introduction      { grid-template-columns: 1fr; gap: 3rem; }
       .intro-image       { max-width: 520px; }
@@ -791,16 +874,14 @@
       .life-cell--e { grid-column: 1 / 7;  grid-row: auto; aspect-ratio: 4/3; }
       .life-cell--f { grid-column: 7 / 13; grid-row: auto; aspect-ratio: 4/3; }
       .explore-header    { grid-template-columns: 1fr; gap: 2rem; }
-      .explore-grid      { grid-template-columns: 1fr 1fr; }
-      .explore-grid .explore-card:last-child { grid-column: 1 / 3; aspect-ratio: 16/8; }
       .booking-inner     { grid-template-columns: 1fr; gap: 4rem; }
     }
 
     @media (max-width: 680px) {
-      .nav               { padding: 1.4rem 1.5rem; }
-      .nav.is-solid      { padding: 1rem 1.5rem; }
-      .nav-links         { gap: 1.4rem; }
-      .nav-links li:nth-child(3) { display: none; }
+      .nav               { padding: 1.2rem 1.5rem; }
+      .nav.is-solid      { padding: .9rem 1.5rem; }
+      .nav-links         { display: none; }
+      .nav-toggle        { display: flex; }
       .landing-content   { padding: 0 1.5rem 3.5rem; }
       .introduction,
       .life, .explore, .booking { padding-left: 1.5rem; padding-right: 1.5rem; }
@@ -809,8 +890,7 @@
       .comforts          { padding-left: 1.5rem; padding-right: 1.5rem; }
       .room-content      { padding: 2.5rem 1.5rem; }
       .comforts-grid     { grid-template-columns: repeat(2, 1fr); }
-      .explore-grid      { grid-template-columns: 1fr; }
-      .explore-grid .explore-card:last-child { grid-column: auto; aspect-ratio: 3/4; }
+      .explore-grid      { grid-template-columns: 1fr 1fr; }
       .life-cell--c, .life-cell--d,
       .life-cell--e, .life-cell--f { grid-column: 1 / 13; }
       .form-row          { grid-template-columns: 1fr; }
@@ -818,6 +898,11 @@
       footer             { padding: 3rem 1.5rem; }
       .footer-inner      { flex-direction: column; text-align: center; }
       .footer-right      { text-align: center; }
+    }
+
+    @media (max-width: 420px) {
+      .explore-grid            { grid-template-columns: 1fr; }
+      .explore-card--feature   { aspect-ratio: 4/3; }
     }
   </style>
 </head>
@@ -832,7 +917,23 @@
       <li><a href="#explore">Explore</a></li>
       <li><a href="#book">Enquire</a></li>
     </ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+
+  <!-- Mobile drawer -->
+  <div class="nav-drawer" id="nav-drawer" aria-hidden="true">
+    <div class="nav-drawer-overlay" id="nav-overlay"></div>
+    <div class="nav-drawer-panel">
+      <ul class="nav-drawer-links">
+        <li><a href="#house" class="drawer-link">The House</a></li>
+        <li><a href="#life" class="drawer-link">Life Here</a></li>
+        <li><a href="#explore" class="drawer-link">Explore</a></li>
+        <li><a href="#book" class="drawer-link">Enquire</a></li>
+      </ul>
+    </div>
+  </div>
 
   <!-- ── 01 Landing ─────────────────────────────────────────────── -->
   <section class="landing" aria-label="Welcome">
@@ -1236,16 +1337,16 @@
         </div>
       </div>
 
-      <!-- Row 2 left: beach -->
+      <!-- Row 2 left: coastal walks -->
       <div class="life-cell life-cell--c reveal delay-1" role="listitem">
         <img
-          src="images/life-beach.jpg"
-          alt="A golden sandy beach on the Inishowen Peninsula"
+          src="images/life-coastal.jpg"
+          alt="Five Finger Strand from above — Inishowen coast"
           loading="lazy"
         >
         <div class="life-caption" aria-hidden="true">
-          <span class="life-caption-title">The beach</span>
-          <span class="life-caption-note">Twenty minutes from the door.</span>
+          <span class="life-caption-title">Coastal walks</span>
+          <span class="life-caption-note">Five Finger Strand. Twenty minutes.</span>
         </div>
       </div>
 
@@ -1296,42 +1397,67 @@
     <div class="explore-inner">
       <div class="explore-header">
         <h2 class="explore-headline reveal" id="explore-heading">
-          See more of<br><em>Inishowen</em>
+          Days worth<br><em>taking.</em>
         </h2>
-        <p class="explore-intro-text reveal delay-1">From coastal walks and beaches to Malin Head and nearby villages, 55 Malin Road is well placed for discovering one of Ireland's most beautiful corners.</p>
+        <p class="explore-intro-text reveal delay-1">Greencastle Golf Club is ten minutes by car. Five Finger Strand, twenty. Malin Head forty-five. Cross the Foyle by ferry for Derry, or drive 90 minutes south to the Giant's Causeway and Carrick-a-Rede.</p>
       </div>
       <div class="explore-grid">
-        <article class="explore-card reveal">
+
+        <!-- Feature: Greencastle Golf -->
+        <article class="explore-card explore-card--feature reveal">
           <img
-            src="images/explore-five-fingers.jpg"
-            alt="Five Fingers Strand, Inishowen"
+            src="images/explore-golf.jpg"
+            alt="Greencastle Golf Club — links course on the shores of Lough Foyle"
             loading="lazy"
           >
           <div class="explore-overlay">
-            <span class="explore-tag">Hidden beach</span>
+            <span class="explore-tag">10 minutes</span>
+            <h3 class="explore-title">Greencastle<br><em>Golf Club</em></h3>
+          </div>
+        </article>
+
+        <article class="explore-card reveal">
+          <img
+            src="images/explore-five-fingers.jpg"
+            alt="Five Fingers Strand from above, Inishowen"
+            loading="lazy"
+          >
+          <div class="explore-overlay">
+            <span class="explore-tag">20 minutes</span>
             <h3 class="explore-title">Five Fingers<br><em>Strand</em></h3>
           </div>
         </article>
         <article class="explore-card reveal delay-1">
           <img
-            src="images/explore-malin-head.jpg"
-            alt="Malin Head, the most northerly point of Ireland"
+            src="images/explore-ferry.jpg"
+            alt="The Lough Foyle ferry crossing from Inishowen to Magilligan"
             loading="lazy"
           >
           <div class="explore-overlay">
-            <span class="explore-tag">45 minutes north</span>
-            <h3 class="explore-title">Malin<br><em>Head</em></h3>
+            <span class="explore-tag">Cross the Foyle</span>
+            <h3 class="explore-title">Lough Foyle<br><em>Ferry</em></h3>
           </div>
         </article>
         <article class="explore-card reveal delay-2">
           <img
-            src="images/explore-moville.jpg"
-            alt="Moville from above — Lough Foyle and the Inishowen Peninsula"
+            src="images/explore-giants-causeway.jpg"
+            alt="The Giant's Causeway, County Antrim"
             loading="lazy"
           >
           <div class="explore-overlay">
-            <span class="explore-tag">Your base</span>
-            <h3 class="explore-title">Moville<br><em>town</em></h3>
+            <span class="explore-tag">90 minutes south</span>
+            <h3 class="explore-title">Giant's<br><em>Causeway</em></h3>
+          </div>
+        </article>
+        <article class="explore-card reveal delay-3">
+          <img
+            src="images/explore-carrick-rede.jpg"
+            alt="Carrick-a-Rede rope bridge and sea stacks, Causeway Coast"
+            loading="lazy"
+          >
+          <div class="explore-overlay">
+            <span class="explore-tag">Causeway Coast</span>
+            <h3 class="explore-title">Carrick-a-Rede<br><em>Rope Bridge</em></h3>
           </div>
         </article>
       </div>
@@ -1415,6 +1541,34 @@
       nav.classList.toggle('is-solid', window.scrollY > 60);
     };
     window.addEventListener('scroll', onScroll, { passive: true });
+
+    // ── Mobile hamburger ─────────────────────────────────────────
+    const toggle   = document.getElementById('nav-toggle');
+    const drawer   = document.getElementById('nav-drawer');
+    const overlay  = document.getElementById('nav-overlay');
+
+    function openDrawer() {
+      drawer.classList.add('is-open');
+      toggle.classList.add('is-open');
+      toggle.setAttribute('aria-expanded', 'true');
+      drawer.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeDrawer() {
+      drawer.classList.remove('is-open');
+      toggle.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      drawer.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    toggle.addEventListener('click', () => {
+      drawer.classList.contains('is-open') ? closeDrawer() : openDrawer();
+    });
+    overlay.addEventListener('click', closeDrawer);
+    document.querySelectorAll('.drawer-link').forEach(link => {
+      link.addEventListener('click', closeDrawer);
+    });
 
     // ── Hero: very subtle parallax ───────────────────────────────
     const parallax = document.getElementById('js-parallax');
