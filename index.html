@@ -287,7 +287,17 @@
     }
     .bedroom {
       background: var(--limestone);
-      padding: clamp(2rem,3vw,3rem) clamp(1.5rem,2.5vw,2.5rem);
+      overflow: hidden;
+    }
+    .bedroom-image { aspect-ratio: 4/3; overflow: hidden; }
+    .bedroom-image img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      transition: transform 10s ease;
+    }
+    .bedroom:hover .bedroom-image img { transform: scale(1.04); }
+    .bedroom-body {
+      padding: clamp(1.6rem,2.5vw,2.5rem) clamp(1.5rem,2.5vw,2.5rem) clamp(2rem,3vw,3rem);
     }
     .bedroom-num {
       display: block;
@@ -635,41 +645,6 @@
       <p class="house-lead">Three bedrooms, two bathrooms, a living room with open fire, a fully equipped kitchen and a private patio. Everything needed for a comfortable stay, for up to six guests.</p>
     </div>
 
-    <!-- Bedrooms -->
-    <div class="bedrooms reveal">
-
-      <div class="bedroom">
-        <span class="bedroom-num">Bedroom 01</span>
-        <h3 class="bedroom-name">The Front<br><em>Bedroom</em></h3>
-        <p class="bedroom-desc">Double bed. Faces west, toward the street.</p>
-        <div class="bedroom-specs">
-          <div class="bedroom-spec"><span class="bedroom-spec-key">Bed</span><span>Double</span></div>
-          <div class="bedroom-spec"><span class="bedroom-spec-key">Sleeps</span><span>2</span></div>
-        </div>
-      </div>
-
-      <div class="bedroom">
-        <span class="bedroom-num">Bedroom 02</span>
-        <h3 class="bedroom-name">The Garden<br><em>Bedroom</em></h3>
-        <p class="bedroom-desc">Double bed. Quiet garden aspect. Morning light from the east.</p>
-        <div class="bedroom-specs">
-          <div class="bedroom-spec"><span class="bedroom-spec-key">Bed</span><span>Double</span></div>
-          <div class="bedroom-spec"><span class="bedroom-spec-key">Sleeps</span><span>2</span></div>
-        </div>
-      </div>
-
-      <div class="bedroom">
-        <span class="bedroom-num">Bedroom 03</span>
-        <h3 class="bedroom-name">The Twin<br><em>Room</em></h3>
-        <p class="bedroom-desc">Two single beds. Garden side of the house.</p>
-        <div class="bedroom-specs">
-          <div class="bedroom-spec"><span class="bedroom-spec-key">Beds</span><span>Two singles</span></div>
-          <div class="bedroom-spec"><span class="bedroom-spec-key">Sleeps</span><span>2</span></div>
-        </div>
-      </div>
-
-    </div>
-
     <!-- Living & Dining -->
     <article class="room reveal" aria-label="Living and dining">
       <div class="room-image">
@@ -710,6 +685,56 @@
         </div>
       </div>
     </article>
+
+    <!-- Bedrooms -->
+    <div class="bedrooms reveal">
+
+      <div class="bedroom">
+        <div class="bedroom-image">
+          <img src="images/room-master.jpg" alt="Front bedroom — double bed with linen curtains" loading="lazy">
+        </div>
+        <div class="bedroom-body">
+          <span class="bedroom-num">Bedroom 01</span>
+          <h3 class="bedroom-name">The Front<br><em>Bedroom</em></h3>
+          <p class="bedroom-desc">Double bed. Faces west, toward the street.</p>
+          <div class="bedroom-specs">
+            <div class="bedroom-spec"><span class="bedroom-spec-key">Bed</span><span>Double</span></div>
+            <div class="bedroom-spec"><span class="bedroom-spec-key">Sleeps</span><span>2</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bedroom">
+        <div class="bedroom-image">
+          <img src="images/room-double-stripe.jpg" alt="Garden bedroom — double bed with striped linen" loading="lazy">
+        </div>
+        <div class="bedroom-body">
+          <span class="bedroom-num">Bedroom 02</span>
+          <h3 class="bedroom-name">The Garden<br><em>Bedroom</em></h3>
+          <p class="bedroom-desc">Double bed. Quiet garden aspect. Morning light from the east.</p>
+          <div class="bedroom-specs">
+            <div class="bedroom-spec"><span class="bedroom-spec-key">Bed</span><span>Double</span></div>
+            <div class="bedroom-spec"><span class="bedroom-spec-key">Sleeps</span><span>2</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bedroom">
+        <div class="bedroom-image">
+          <img src="images/room-single.jpg" alt="Twin room — single beds, garden side" loading="lazy">
+        </div>
+        <div class="bedroom-body">
+          <span class="bedroom-num">Bedroom 03</span>
+          <h3 class="bedroom-name">The Twin<br><em>Room</em></h3>
+          <p class="bedroom-desc">Two single beds. Garden side of the house.</p>
+          <div class="bedroom-specs">
+            <div class="bedroom-spec"><span class="bedroom-spec-key">Beds</span><span>Two singles</span></div>
+            <div class="bedroom-spec"><span class="bedroom-spec-key">Sleeps</span><span>2</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
 
     <!-- Amenities -->
     <div class="amenities reveal">
