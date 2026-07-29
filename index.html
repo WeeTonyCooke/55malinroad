@@ -17,7 +17,7 @@
       --peat-mid:  #2C2824;
       --peat-light:#2E2A26;
       --atlantic:  #445D6E;
-      --mist:      #9A938C;
+      --mist:      #6E6862;
       --oak:       #C2B09A;
       --burgundy:  #8C1826;
       --white:     #FDFCFA;
@@ -181,6 +181,16 @@
     }
 
     /* Gradient: transparent until lower half, then darkens for text */
+    .landing-photo::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      background: radial-gradient(ellipse 46% 40% at 21% 84%,
+                                  rgba(0,0,0,.42), transparent 70%);
+    }
+
     .landing-photo::after {
       content: '';
       position: absolute;
@@ -188,10 +198,10 @@
       z-index: 1;
       pointer-events: none;
       background: linear-gradient(180deg,
-        rgba(0,0,0,0)   52%,
-        rgba(0,0,0,.15) 62%,
-        rgba(0,0,0,.55) 74%,
-        rgba(0,0,0,.82) 100%);
+        rgba(0,0,0,0)   50%,
+        rgba(0,0,0,.12) 64%,
+        rgba(0,0,0,.34) 80%,
+        rgba(0,0,0,.55) 100%);
     }
 
     /* Text content, pinned to bottom */
@@ -213,7 +223,7 @@
       color: #fff;
       letter-spacing: -.015em;
       margin-bottom: 1.4rem;
-      text-shadow: 0 2px 16px rgba(0,0,0,.5);
+      text-shadow: 0 2px 24px rgba(0,0,0,.55);
     }
     .landing-headline em { font-style: italic; }
     .landing-sub {
@@ -370,7 +380,7 @@
       display: flex; flex-direction: column; justify-content: center;
       padding: clamp(3rem,6vw,7rem) clamp(2.5rem,5vw,6rem);
     }
-    .outside-label { font-size: .6rem; letter-spacing: .28em; text-transform: uppercase; color: rgba(154,147,140,.7); margin-bottom: 1.6rem; }
+    .outside-label { font-size: .6rem; letter-spacing: .28em; text-transform: uppercase; color: rgba(154,147,140,.9); margin-bottom: 1.6rem; }
     .outside-headline {
       font-family: var(--f-display);
       font-weight: 300;
@@ -392,12 +402,12 @@
     .outside-callout-body  { font-size: .88rem; line-height: 1.7; color: rgba(240,235,227,.65); }
     .outside-specs { border-top: 1px solid rgba(253,252,250,.1); padding-top: 1.6rem; display: grid; gap: .6rem; }
     .outside-spec  { display: flex; justify-content: space-between; font-size: .7rem; color: rgba(240,235,227,.6); }
-    .outside-spec-key { text-transform: uppercase; letter-spacing: .1em; color: rgba(154,147,140,.7); font-size: .62rem; }
+    .outside-spec-key { text-transform: uppercase; letter-spacing: .1em; color: rgba(154,147,140,.9); font-size: .62rem; }
 
     /* ─── Facilities ─── */
     .facilities { background: var(--peat); margin-top: 2px; }
     .facilities-inner { max-width: 1440px; margin: 0 auto; padding: clamp(3rem,5vw,5rem) 3rem; }
-    .facilities-label { color: rgba(154,147,140,.55); margin-bottom: 2.5rem; }
+    .facilities-label { color: rgba(154,147,140,.9); margin-bottom: 2.5rem; }
     .facilities-grid {
       display: grid;
       grid-template-columns: repeat(4,1fr);
@@ -405,7 +415,7 @@
       background: rgba(253,252,250,.06);
     }
     .facility { background: var(--peat); padding: 1.8rem 1.6rem 2rem; display: flex; flex-direction: column; gap: .9rem; }
-    .facility-icon svg { display: block; width: 28px; height: 28px; stroke: var(--burgundy); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .facility-icon svg { display: block; width: 28px; height: 28px; stroke: var(--oak); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
     .facility-name { font-size: .72rem; letter-spacing: .05em; color: rgba(240,235,227,.88); line-height: 1.5; }
 
     /* ─── Transition ─── */
@@ -553,7 +563,7 @@
 
     /* ─── Footer ─── */
     .footer-cta {
-      background: var(--peat-mid);
+      background: var(--peat);
       padding: clamp(5rem,10vw,9rem) 3rem;
       text-align: center;
     }
@@ -649,14 +659,19 @@
         bottom: 0;
         width: 100%;
         height: calc(100% - 96px);
-        object-position: center 18%;
+        object-position: center center;
       }
 
       /* Gradient starts at top of image (96px into landing-photo) */
       .landing-photo::after { top: 96px; }
+      .landing-photo::before {
+        top: 96px;
+        background: radial-gradient(ellipse 78% 30% at 50% 88%,
+                                    rgba(0,0,0,.40), transparent 72%);
+      }
 
       /* ── Typography ── */
-      .landing-headline { font-size: 60px; line-height: .95; text-shadow: none; margin-bottom: 0; }
+      .landing-headline { font-size: 60px; line-height: .95; text-shadow: 0 2px 20px rgba(0,0,0,.5); margin-bottom: 0; }
 
       /* ── Content block ── */
       .landing-content { bottom: 48px; left: 24px; right: 24px; padding: 0; }
@@ -736,7 +751,10 @@
   <!-- ── 01 Hero ── -->
   <section aria-label="Welcome">
     <div class="landing-photo">
-      <img class="landing-image" src="images/house-exterior.jpg" alt="55 Malin Road — white terraced house with red door and windows, Moville, Co. Donegal" fetchpriority="high">
+      <picture>
+        <source media="(max-width: 680px)" srcset="images/house-exterior-mobile.jpg">
+        <img class="landing-image" src="images/house-exterior.jpg" alt="55 Malin Road — white terraced house with red door and windows, Moville, Co. Donegal" fetchpriority="high">
+      </picture>
       <div class="landing-content">
         <h1 class="landing-headline">A quieter way<br>to <em>stay.</em></h1>
         <p class="landing-sub">Moville, Co. Donegal.</p>
@@ -759,7 +777,7 @@
       <p class="intro-body">Three bedrooms, two bathrooms, sleeps six. The waterfront, cafés, pubs and shops are all on foot.</p>
     </div>
     <div class="intro-image reveal delay-2">
-      <img src="images/room-living.jpg" alt="The living room at 55 Malin Road" loading="lazy" style="object-position: center 40%;">
+      <img src="images/room-dining.jpg" alt="The dining area at 55 Malin Road" loading="lazy">
     </div>
   </section>
 
@@ -777,7 +795,8 @@
     <article class="room reveal" aria-label="Living and dining">
       <div class="room-image">
         <img
-          src="https://static.wixstatic.com/media/53fe18_7708cb658b48408e9bc5f1d3d6cbe301~mv2.jpg/v1/fill/w_1400,h_1050,al_c,q_85,enc_auto/photo.jpg"
+          src="images/room-living.jpg"
+          style="object-position: center 50%;"
           alt="The living and dining room at 55 Malin Road"
           loading="lazy"
         >
@@ -868,7 +887,7 @@
     <div class="outside-image">
       <img
         src="images/room-outside.jpg"
-        alt="The outdoor patio and private hot tub at 55 Malin Road"
+        alt="The patio, outdoor seating and BBQ at 55 Malin Road"
         loading="lazy"
       >
     </div>
@@ -928,7 +947,7 @@
         </div>
 
         <div class="facility">
-          <span class="facility-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg></span>
+          <span class="facility-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3v18"/><path d="M3 10a9 7 0 0 1 18 0Z"/><path d="M8 21h8"/></svg></span>
           <span class="facility-name">Outdoor Dining</span>
         </div>
 
