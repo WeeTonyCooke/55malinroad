@@ -171,27 +171,48 @@
     }
     .landing-bg {
       position: absolute;
-      inset: -4% 0 -4%;
+      inset: 0;
       background: url('images/house-exterior.jpg') center 35% / cover;
-      will-change: transform;
     }
     .landing-bg::after {
       content: '';
       position: absolute; inset: 0;
       background: linear-gradient(to bottom,
-        rgba(12,9,8,.18) 0%,
-        rgba(12,9,8,.02) 30%,
-        rgba(12,9,8,.55) 70%,
-        rgba(12,9,8,.88) 100%);
+        rgba(12,9,8,.22) 0%,
+        rgba(12,9,8,.04) 20%,
+        rgba(12,9,8,.6)  58%,
+        rgba(12,9,8,.92) 100%);
     }
     .landing-content {
       position: absolute;
       bottom: 0; left: 0; right: 0;
       z-index: 2;
-      padding: 0 3rem 4rem;
+      padding: 0 2rem 4rem;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+    }
+
+    /* Desktop hero: house right-justified, dark panel left */
+    @media (min-width: 900px) {
+      .landing-photo::before {
+        content: '';
+        position: absolute;
+        inset: 0 52% 0 0;
+        background: var(--peat);
+        z-index: 1;
+      }
+      .landing-bg {
+        left: 48%;
+        right: 0;
+        background-position: center 30%;
+      }
+      .landing-bg::after { display: none; }
+      .landing-content {
+        right: 52%;
+        z-index: 2;
+        padding: 0 3.5rem 5rem;
+      }
     }
     .landing-headline {
       font-family: var(--f-display);
@@ -795,7 +816,7 @@
     <article class="room room--reverse reveal" aria-label="Kitchen">
       <div class="room-image">
         <img
-          src="https://static.wixstatic.com/media/53fe18_88fab13e399b43d58250b6021fbe2343~mv2.jpg/v1/fill/w_1400,h_1050,al_c,q_85,enc_auto/photo.jpg"
+          src="images/room-kitchen.jpg"
           alt="The kitchen at 55 Malin Road"
           loading="lazy"
         >
@@ -817,7 +838,7 @@
   <section class="outside" id="outside" aria-labelledby="outside-heading">
     <div class="outside-image">
       <img
-        src="https://static.wixstatic.com/media/53fe18_1f1b497b94714ecaaf8fbe85c3502339~mv2.jpg/v1/fill/w_1400,h_1050,al_c,q_85,enc_auto/photo.jpg"
+        src="images/room-outside.jpg"
         alt="The outdoor patio and private hot tub at 55 Malin Road"
         loading="lazy"
       >
@@ -1093,7 +1114,7 @@
         <div class="footer-meta">
           <a href="mailto:hello@55malinroad.ie">hello@55malinroad.ie</a>
           <p>Moville, Co. Donegal, Ireland</p>
-          <p>© 2025 55 Malin Road</p>
+          <p>© 2026 55 Malin Road</p>
         </div>
       </div>
     </div>
