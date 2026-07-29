@@ -98,7 +98,7 @@
       font-size: .65rem;
       letter-spacing: .16em;
       text-transform: uppercase;
-      color: rgba(255,255,255,.7);
+      color: rgba(255,255,255,.9);
       white-space: nowrap;
       transition: color .3s ease;
     }
@@ -164,8 +164,10 @@
     /* ─── 01 Hero ─── */
     .landing-photo {
       position: relative;
-      height: 100svh;
+      width: 100%;
+      aspect-ratio: 1536 / 1024;
       min-height: 580px;
+      max-height: 1000px;
       overflow: hidden;
     }
 
@@ -197,11 +199,17 @@
       inset: 0;
       z-index: 1;
       pointer-events: none;
-      background: linear-gradient(180deg,
-        rgba(0,0,0,0)   50%,
-        rgba(0,0,0,.12) 64%,
-        rgba(0,0,0,.34) 80%,
-        rgba(0,0,0,.55) 100%);
+      background:
+        linear-gradient(180deg,
+          rgba(0,0,0,.55) 0%,
+          rgba(0,0,0,.28) 6%,
+          rgba(0,0,0,.10) 11%,
+          rgba(0,0,0,0)   16%),
+        linear-gradient(180deg,
+          rgba(0,0,0,0)   50%,
+          rgba(0,0,0,.12) 64%,
+          rgba(0,0,0,.34) 80%,
+          rgba(0,0,0,.55) 100%);
     }
 
     /* Text content, pinned to bottom */
@@ -313,7 +321,7 @@
     .room--reverse { direction: rtl; }
     .room--reverse > * { direction: ltr; }
     .room-image { position: relative; overflow: hidden; }
-    .room-image img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 10s ease; }
+    .room-image img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 10s ease; }
     .room-image:hover img { transform: scale(1.04); }
     .room-content {
       background: var(--white);
@@ -649,7 +657,7 @@
       .nav-toggle span { background: var(--peat); filter: none; }
 
       /* ── Hero ── */
-      .landing-photo { height: 100svh; min-height: 760px; }
+      .landing-photo { height: 100svh; min-height: 760px; aspect-ratio: auto; max-height: none; }
 
       /* Image fills from below nav to bottom of viewport */
       .landing-image {
@@ -663,7 +671,14 @@
       }
 
       /* Gradient starts at top of image (96px into landing-photo) */
-      .landing-photo::after { top: 96px; }
+      .landing-photo::after {
+        top: 96px;
+        background: linear-gradient(180deg,
+          rgba(0,0,0,0)   50%,
+          rgba(0,0,0,.12) 64%,
+          rgba(0,0,0,.34) 80%,
+          rgba(0,0,0,.55) 100%);
+      }
       .landing-photo::before {
         top: 96px;
         background: radial-gradient(ellipse 78% 30% at 50% 88%,
@@ -777,7 +792,7 @@
       <p class="intro-body">Three bedrooms, two bathrooms, sleeps six. The waterfront, cafés, pubs and shops are all on foot.</p>
     </div>
     <div class="intro-image reveal delay-2">
-      <img src="images/room-dining.jpg" alt="The dining area at 55 Malin Road" loading="lazy">
+      <img src="images/room-living.jpg" alt="The living room at 55 Malin Road" loading="lazy">
     </div>
   </section>
 
@@ -795,8 +810,8 @@
     <article class="room reveal" aria-label="Living and dining">
       <div class="room-image">
         <img
-          src="images/room-living.jpg"
-          style="object-position: center 50%;"
+          src="images/room-dining.jpg"
+          style="object-position: center 40%;"
           alt="The living and dining room at 55 Malin Road"
           loading="lazy"
         >
@@ -1088,7 +1103,7 @@
   <section class="booking" id="book" aria-labelledby="book-heading">
     <div class="booking-inner">
       <div class="booking-text reveal">
-        <span class="label booking-label">Plan your stay</span>
+        <span class="label booking-label">Availability</span>
         <h2 class="booking-headline" id="book-heading">
           Planning<br>your <em>stay?</em>
         </h2>
@@ -1141,16 +1156,6 @@
 
   <!-- ── Footer ── -->
   <footer>
-    <div class="footer-cta">
-      <div class="footer-cta-inner reveal">
-        <h2 class="footer-cta-headline">Ready to plan<br>your <em>stay?</em></h2>
-        <p class="footer-cta-body">Three bedrooms. Private hot tub. In the centre of Moville, on the Inishowen Peninsula.</p>
-        <a href="#book" class="btn-footer">
-          Check availability
-          <span class="btn-footer-arrow" aria-hidden="true"></span>
-        </a>
-      </div>
-    </div>
     <div class="footer-base">
       <div class="footer-base-inner">
         <nav class="footer-nav" aria-label="Footer navigation">
