@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>55 Malin Road — Inishowen, Donegal</title>
   <meta name="description" content="A three-bedroom holiday home in the heart of Moville, Co. Donegal. Sleeps six. Private hot tub.">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/umd/lucide.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
@@ -19,6 +20,7 @@
       --atlantic:  #445D6E;
       --mist:      #9A938C;
       --oak:       #C2B09A;
+      --burgundy:  #8C1826;
       --white:     #FDFCFA;
       --border:    rgba(26,23,20,.09);
       --f-display: 'Cormorant Garamond', Georgia, serif;
@@ -169,17 +171,18 @@
     }
     .landing-bg {
       position: absolute;
-      inset: -6% 0 -6%;
-      background: url('images/hero.jpg') center 45% / cover;
+      inset: -4% 0 -4%;
+      background: url('images/house-exterior.jpg') center 35% / cover;
       will-change: transform;
     }
     .landing-bg::after {
       content: '';
       position: absolute; inset: 0;
       background: linear-gradient(to bottom,
-        rgba(12,9,8,.52) 0%,
-        rgba(12,9,8,.04) 35%,
-        rgba(12,9,8,.72) 100%);
+        rgba(12,9,8,.18) 0%,
+        rgba(12,9,8,.02) 30%,
+        rgba(12,9,8,.55) 70%,
+        rgba(12,9,8,.88) 100%);
     }
     .landing-content {
       position: absolute;
@@ -388,7 +391,7 @@
       background: rgba(253,252,250,.06);
     }
     .facility { background: var(--peat); padding: 1.8rem 1.6rem 2rem; display: flex; flex-direction: column; gap: .9rem; }
-    .facility-icon svg { display: block; width: 20px; height: 20px; stroke: var(--oak); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .facility-icon svg { display: block; width: 24px; height: 24px; stroke: var(--burgundy); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
     .facility-name { font-size: .72rem; letter-spacing: .05em; color: rgba(240,235,227,.65); line-height: 1.5; }
 
     /* ─── Transition ─── */
@@ -616,7 +619,7 @@
       .nav-toggle    { display: flex; }
 
       .landing-photo    { height: 65svh; min-height: 320px; }
-      .landing-bg       { inset: 0; background-position: 52% 68%; will-change: auto; }
+      .landing-bg       { inset: 0; background-position: center 35%; will-change: auto; }
       .landing-headline { font-size: clamp(2.2rem, 9vw, 3rem); }
       .landing-content  {
         position: static;
@@ -683,7 +686,7 @@
   <!-- ── 01 Hero ── -->
   <section aria-label="Welcome">
     <div class="landing-photo">
-      <div class="landing-bg" id="js-parallax" role="img" aria-label="Moville from above, Inishowen Peninsula, Co. Donegal"></div>
+      <div class="landing-bg" id="js-parallax" role="img" aria-label="55 Malin Road — white terraced house with red door and windows, Moville, Co. Donegal"></div>
     </div>
     <div class="landing-content">
       <h1 class="landing-headline">A quieter way<br>to <em>stay.</em></h1>
@@ -706,7 +709,7 @@
       <p class="intro-body">Three bedrooms, two bathrooms, sleeps six. The waterfront, cafés, pubs and shops are all on foot.</p>
     </div>
     <div class="intro-image reveal delay-2">
-      <img src="images/house-exterior.jpg" alt="55 Malin Road — the front of the house" loading="lazy">
+      <img src="images/hero.jpg" alt="Moville from above, Inishowen Peninsula" loading="lazy" style="object-position: center 60%;">
     </div>
   </section>
 
@@ -836,47 +839,47 @@
   <!-- ── Facilities ── -->
   <div class="facilities reveal">
     <div class="facilities-inner">
-      <span class="label facilities-label">What's included</span>
+      <span class="label facilities-label">At a glance</span>
       <div class="facilities-grid">
 
         <div class="facility">
-          <span class="facility-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
-          <span class="facility-name">Sleeps six</span>
+          <span class="facility-icon"><i data-lucide="users"></i></span>
+          <span class="facility-name">Sleeps 6</span>
         </div>
 
         <div class="facility">
-          <span class="facility-icon"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg></span>
+          <span class="facility-icon"><i data-lucide="map-pin"></i></span>
+          <span class="facility-name">Walk to Town</span>
+        </div>
+
+        <div class="facility">
+          <span class="facility-icon"><i data-lucide="wifi"></i></span>
           <span class="facility-name">Free Wi-Fi</span>
         </div>
 
         <div class="facility">
-          <span class="facility-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>
+          <span class="facility-icon"><i data-lucide="utensils"></i></span>
+          <span class="facility-name">Fully Equipped Kitchen</span>
+        </div>
+
+        <div class="facility">
+          <span class="facility-icon"><i data-lucide="waves"></i></span>
+          <span class="facility-name">Private Hot Tub</span>
+        </div>
+
+        <div class="facility">
+          <span class="facility-icon"><i data-lucide="key-round"></i></span>
+          <span class="facility-name">Self Check-in</span>
+        </div>
+
+        <div class="facility">
+          <span class="facility-icon"><i data-lucide="monitor-play"></i></span>
           <span class="facility-name">Smart TV &amp; Netflix</span>
         </div>
 
         <div class="facility">
-          <span class="facility-icon"><svg viewBox="0 0 24 24"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg></span>
-          <span class="facility-name">Fully equipped kitchen</span>
-        </div>
-
-        <div class="facility">
-          <span class="facility-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></span>
-          <span class="facility-name">Private hot tub</span>
-        </div>
-
-        <div class="facility">
-          <span class="facility-icon"><svg viewBox="0 0 24 24"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg></span>
-          <span class="facility-name">Self check-in</span>
-        </div>
-
-        <div class="facility">
-          <span class="facility-icon"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></span>
-          <span class="facility-name">BBQ</span>
-        </div>
-
-        <div class="facility">
-          <span class="facility-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
-          <span class="facility-name">Patio &amp; outdoor seating</span>
+          <span class="facility-icon"><i data-lucide="sun"></i></span>
+          <span class="facility-name">Outdoor Dining</span>
         </div>
 
       </div>
@@ -1103,13 +1106,10 @@
       nav.classList.toggle('is-solid', window.scrollY > 60);
     }, { passive: true });
 
-    // Parallax — desktop only
-    const bg = document.getElementById('js-parallax');
-    window.addEventListener('scroll', () => {
-      if (window.innerWidth <= 680) return;
-      const y = window.scrollY;
-      if (y < window.innerHeight * 1.2) bg.style.transform = `translateY(${y * 0.2}px)`;
-    }, { passive: true });
+    // Lucide icons
+    if (typeof lucide !== 'undefined') lucide.createIcons();
+
+    // No parallax on architectural hero
 
     // Scroll reveal
     const io = new IntersectionObserver(entries => {
