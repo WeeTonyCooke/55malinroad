@@ -181,11 +181,14 @@
         rgba(12,9,8,.04) 35%,
         rgba(12,9,8,.72) 100%);
     }
-    .landing-headline-area {
+    .landing-content {
       position: absolute;
-      bottom: 10rem; left: 0; right: 0;
-      padding: 0 3rem;
+      bottom: 0; left: 0; right: 0;
       z-index: 2;
+      padding: 0 3rem 4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
     }
     .landing-headline {
       font-family: var(--f-display);
@@ -194,21 +197,16 @@
       line-height: 1.05;
       color: #fff;
       letter-spacing: -.015em;
+      margin-bottom: 1.4rem;
     }
     .landing-headline em { font-style: italic; }
-    .landing-content {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      z-index: 2;
-      padding: 0 3rem 4.5rem;
-    }
     .landing-sub {
       font-size: 1rem;
       font-weight: 400;
       line-height: 1.7;
       color: rgba(255,255,255,.88);
       max-width: 440px;
-      margin-bottom: 2rem;
+      margin-bottom: 1.8rem;
     }
     .landing-cta {
       display: inline-block;
@@ -617,11 +615,10 @@
       .nav-links     { display: none; }
       .nav-toggle    { display: flex; }
 
-      .landing-photo         { height: 65svh; min-height: 320px; }
-      .landing-bg            { inset: 0; background-position: 52% 68%; will-change: auto; }
-      .landing-headline-area { bottom: 1.8rem; padding: 0 1.5rem; }
-      .landing-headline      { font-size: clamp(2.2rem, 9vw, 3rem); }
-      .landing-content {
+      .landing-photo    { height: 65svh; min-height: 320px; }
+      .landing-bg       { inset: 0; background-position: 52% 68%; will-change: auto; }
+      .landing-headline { font-size: clamp(2.2rem, 9vw, 3rem); }
+      .landing-content  {
         position: static;
         padding: 2rem 1.5rem 2.5rem;
         background: var(--limestone);
@@ -687,12 +684,10 @@
   <section aria-label="Welcome">
     <div class="landing-photo">
       <div class="landing-bg" id="js-parallax" role="img" aria-label="Moville from above, Inishowen Peninsula, Co. Donegal"></div>
-      <div class="landing-headline-area">
-        <h1 class="landing-headline">A quieter way<br>to <em>stay.</em></h1>
-      </div>
     </div>
     <div class="landing-content">
-      <p class="landing-sub">Three bedrooms. Sleeps six. In the heart of Moville, on the Inishowen Peninsula.</p>
+      <h1 class="landing-headline">A quieter way<br>to <em>stay.</em></h1>
+      <p class="landing-sub">Moville, Co. Donegal.</p>
       <a href="#book" class="landing-cta">Check availability</a>
       <div class="landing-scroll" aria-hidden="true">
         <span class="landing-scroll-line"></span>
@@ -708,8 +703,7 @@
       <h2 class="intro-headline" id="intro-heading">
         Stay together.<br><em>Settle in.</em>
       </h2>
-      <p class="intro-body">Three bedrooms, two bathrooms, sleeps six. In the centre of Moville — the waterfront, cafés, pubs and shops are all on foot.</p>
-      <p class="intro-body">A good base for the Inishowen Peninsula.</p>
+      <p class="intro-body">Three bedrooms, two bathrooms, sleeps six. The waterfront, cafés, pubs and shops are all on foot.</p>
     </div>
     <div class="intro-image reveal delay-2">
       <img src="images/house-exterior.jpg" alt="55 Malin Road — the front of the house" loading="lazy">
