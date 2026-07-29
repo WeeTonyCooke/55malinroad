@@ -168,49 +168,58 @@
       min-height: 580px;
       overflow: hidden;
     }
-    .landing-bg {
+
+    /* Gradient overlay sits between image and content */
+    .landing-photo::after {
+      content: '';
       position: absolute;
       inset: 0;
-      background: url('images/house-exterior.jpg') center 35% / cover;
-    }
-    .landing-bg::after {
-      content: '';
-      position: absolute; inset: 0;
+      z-index: 1;
       background: linear-gradient(to bottom,
         rgba(12,9,8,.0)  0%,
-        rgba(12,9,8,.0)  28%,
-        rgba(12,9,8,.78) 58%,
-        rgba(12,9,8,.97) 78%,
-        rgba(12,9,8,.97) 100%);
+        rgba(12,9,8,.0)  30%,
+        rgba(12,9,8,.72) 60%,
+        rgba(12,9,8,.95) 80%,
+        rgba(12,9,8,.95) 100%);
     }
+
+    .landing-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* Desktop: push image down — wall and roofline under nav, minimal sky */
+      object-position: center 62%;
+    }
+
     .landing-content {
       position: absolute;
       bottom: 0; left: 0; right: 0;
-      z-index: 2;
+      z-index: 3;
       padding: 0 2rem 4rem;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
     }
 
-    /* Desktop hero: house right-justified, dark panel left */
+    /* Desktop: split — dark panel left, house photo right */
     @media (min-width: 900px) {
       .landing-photo::before {
         content: '';
         position: absolute;
         inset: 0 52% 0 0;
         background: var(--peat);
-        z-index: 1;
+        z-index: 2;
       }
-      .landing-bg {
+      .landing-photo::after { display: none; }
+      .landing-image {
         left: 48%;
-        right: 0;
-        background-position: center 30%;
+        object-position: center 58%;
       }
-      .landing-bg::after { display: none; }
       .landing-content {
         right: 52%;
-        z-index: 2;
+        z-index: 3;
         padding: 0 3.5rem 5rem;
       }
     }
@@ -641,7 +650,8 @@
       .nav-toggle    { display: flex; }
 
       .landing-photo    { height: 100svh; min-height: 480px; }
-      .landing-bg       { inset: 0; background-position: center 25%; will-change: auto; }
+      /* Zoom out ~18%: house sits within its terrace, not tightly cropped */
+      .landing-image    { object-position: center 38%; transform: scale(0.82); transform-origin: center 40%; }
       .landing-headline { font-size: clamp(2.2rem, 9vw, 3rem); }
       .landing-content  { padding: 0 1.5rem 3rem; }
       .landing-sub      { max-width: 100%; }
@@ -702,7 +712,7 @@
   <!-- ── 01 Hero ── -->
   <section aria-label="Welcome">
     <div class="landing-photo">
-      <div class="landing-bg" id="js-parallax" role="img" aria-label="55 Malin Road — white terraced house with red door and windows, Moville, Co. Donegal"></div>
+      <img class="landing-image" src="images/house-exterior.jpg" alt="55 Malin Road — white terraced house with red door and windows, Moville, Co. Donegal" fetchpriority="high">
       <div class="landing-content">
         <h1 class="landing-headline">A quieter way<br>to <em>stay.</em></h1>
         <p class="landing-sub">Moville, Co. Donegal.</p>
