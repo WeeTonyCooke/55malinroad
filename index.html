@@ -641,7 +641,15 @@
       .nav-toggle    { display: flex; }
 
       .landing-photo    { height: 100svh; min-height: 560px; }
-      .landing-bg       { inset: 0; background-position: 32% 25%; will-change: auto; }
+      .landing-bg       {
+        inset: 0;
+        background-image: url('images/house-exterior.jpg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center 12%;
+        background-color: var(--peat);
+        will-change: auto;
+      }
       .landing-headline { font-size: clamp(2rem, 8vw, 2.8rem); margin-bottom: 1rem; }
       .landing-content  {
         padding: 0 1.5rem calc(1.8rem + env(safe-area-inset-bottom, 0px));
