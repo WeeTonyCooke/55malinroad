@@ -618,6 +618,127 @@
     .footer-meta p { display: block; font-size: .65rem; color: var(--mist); line-height: 1.9; transition: color .3s ease; }
     .footer-meta a:hover { color: var(--peat); }
 
+    /* Studio credit. Sits on its own hairline-separated row so it reads as a
+       signature rather than competing with the property's own wordmark. */
+    .footer-credit {
+      max-width: 1440px; margin: 2.5rem auto 0;
+      padding-top: 1.8rem;
+      border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: flex-end;
+    }
+    .footer-credit-link {
+      display: inline-flex; align-items: center; gap: .6rem;
+      color: var(--mist);
+      transition: color .3s ease;
+    }
+    .footer-credit-link:hover { color: var(--peat); }
+    .footer-credit-logo {
+      display: block;
+      height: 15px; width: auto;
+      fill: currentColor;
+      opacity: .6;
+      transition: opacity .3s ease;
+    }
+    .footer-credit-link:hover .footer-credit-logo { opacity: 1; }
+    .footer-credit-text { font-size: .65rem; letter-spacing: .04em; line-height: 1; }
+
+    /* ─── Essentials ─── */
+    .essentials { border-top: 1px solid var(--border); padding: clamp(4rem,8vw,7rem) 3rem; }
+    .essentials-inner { max-width: 1440px; margin: 0 auto; }
+    .essentials-label { margin-bottom: 2.8rem; }
+    .essentials-grid {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      column-gap: clamp(2rem,4vw,4rem);
+      row-gap: 2.6rem;
+    }
+    .essential-key   { font-size: .62rem; letter-spacing: .18em; text-transform: uppercase; color: var(--mist); margin-bottom: .6rem; }
+    .essential-value { font-size: .95rem; line-height: 1.6; color: var(--peat-light); }
+    .essentials-note {
+      margin-top: 3rem; padding-top: 1.6rem;
+      border-top: 1px solid var(--border);
+      font-size: .85rem; line-height: 1.8; color: var(--mist);
+      max-width: 640px;
+    }
+    .essentials-note a { border-bottom: 1px solid var(--border); transition: color .3s ease; }
+    .essentials-note a:hover { color: var(--peat); }
+
+    /* ─── Reviews ─── */
+    .reviews { border-top: 1px solid var(--border); padding: clamp(5rem,10vw,9rem) 3rem; }
+    .reviews-inner  { max-width: 1100px; margin: 0 auto; }
+    .reviews-label  { margin-bottom: 2.8rem; }
+    .reviews-grid   { display: grid; grid-template-columns: repeat(3,1fr); gap: clamp(2rem,4vw,4rem); }
+    .review-quote {
+      font-family: var(--f-display); font-weight: 300;
+      font-size: 1.15rem; line-height: 1.65;
+      color: var(--peat); margin-bottom: 1.2rem;
+    }
+    .review-source { font-size: .62rem; letter-spacing: .18em; text-transform: uppercase; color: var(--mist); }
+    .reviews-foot  { margin-top: 3.5rem; font-size: .8rem; color: var(--mist); }
+
+    /* ─── Gift vouchers ─── */
+    .vouchers { border-top: 1px solid var(--border); padding: clamp(5rem,10vw,9rem) 3rem; }
+    .vouchers-inner  { max-width: 1440px; margin: 0 auto; }
+    .vouchers-header {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: clamp(3rem,6vw,7rem); align-items: end;
+      margin-bottom: clamp(2.5rem,4vw,4rem);
+    }
+    .vouchers-headline {
+      font-family: var(--f-display); font-weight: 300;
+      font-size: clamp(2.2rem,4vw,3.6rem);
+      line-height: 1.05; letter-spacing: -.02em;
+    }
+    .vouchers-headline em { font-style: italic; }
+    .vouchers-intro { font-size: 1rem; line-height: 1.85; color: var(--peat-light); }
+    .vouchers-grid {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 1px; background: var(--border);
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    }
+    .voucher {
+      background: var(--limestone);
+      padding: clamp(2rem,3vw,2.8rem);
+      display: flex; flex-direction: column; align-items: flex-start;
+    }
+    .voucher-amount {
+      font-family: var(--f-display); font-weight: 300;
+      font-size: clamp(2.4rem,4vw,3.2rem);
+      line-height: 1; letter-spacing: -.02em; margin-bottom: .9rem;
+    }
+    .voucher-note { font-size: .9rem; line-height: 1.7; color: var(--peat-light); margin-bottom: 2rem; flex-grow: 1; }
+    .voucher-btn {
+      font-size: .62rem; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--peat); padding-bottom: .3rem;
+      border-bottom: 1px solid rgba(26,23,20,.3);
+      transition: border-color .3s ease;
+    }
+    .voucher-btn:hover { border-bottom-color: var(--peat); }
+    .vouchers-terms { margin-top: 2.5rem; font-size: .8rem; line-height: 1.8; color: var(--mist); max-width: 660px; }
+
+    /* ─── Booking additions ─── */
+    .form-context {
+      display: none;
+      margin-bottom: 1px; padding: 1.1rem 1.6rem;
+      background: rgba(253,252,250,.04);
+      border-left: 2px solid var(--oak);
+      font-size: .85rem; color: rgba(240,235,227,.82);
+    }
+    .form-context.is-visible { display: block; }
+    .booking-price { font-size: .95rem; line-height: 1.7; color: rgba(240,235,227,.82); margin-bottom: 1.8rem; }
+    .booking-price strong { display: block; font-weight: 400; font-size: 1.3rem; color: var(--limestone); margin-bottom: .3rem; }
+    .form-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+    .form-message {
+      display: none;
+      margin-top: 1.5rem; padding: 1.2rem 1.4rem;
+      border-left: 2px solid var(--oak);
+      background: rgba(253,252,250,.04);
+      font-size: .88rem; line-height: 1.7; color: rgba(240,235,227,.82);
+    }
+    .form-message.is-visible { display: block; }
+    .form-message.is-error   { border-left-color: var(--burgundy); }
+    .form-required { color: var(--oak); }
+
     /* ─── Responsive ─── */
     @media (max-width: 1200px) {
       .explore-grid          { grid-template-columns: repeat(2,1fr); }
@@ -640,8 +761,12 @@
       .explore-header  { grid-template-columns: 1fr; gap: 2rem; }
       .booking-inner   { grid-template-columns: 1fr; gap: 4rem; }
       .facilities-grid { grid-template-columns: repeat(4,1fr); }
+      .essentials-grid { grid-template-columns: repeat(2,1fr); }
+      .reviews-grid    { grid-template-columns: 1fr; }
+      .vouchers-header { grid-template-columns: 1fr; gap: 1.5rem; }
       .footer-base-inner { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
       .footer-meta     { text-align: left; }
+      .footer-credit   { justify-content: flex-start; }
     }
 
     @media (max-width: 680px) {
@@ -716,6 +841,11 @@
       .bedrooms        { padding-left: 0; padding-right: 0; }
       .facilities-inner{ padding-left: 1.5rem; padding-right: 1.5rem; }
       .facilities-grid { grid-template-columns: repeat(2,1fr); }
+      .essentials      { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .essentials-grid { grid-template-columns: 1fr; row-gap: 2rem; }
+      .reviews         { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .vouchers        { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .vouchers-grid   { grid-template-columns: 1fr; }
       .room-content    { padding: 2.5rem 1.5rem; }
       .outside-content { padding: 2.5rem 1.5rem; }
       .life-grid       { grid-template-columns: repeat(2,1fr); }
@@ -911,7 +1041,7 @@
       <div class="landing-content">
         <h1 class="landing-headline">A quieter way<br>to <em>stay.</em></h1>
         <p class="landing-sub">Moville, Co. Donegal.</p>
-        <a href="#book" class="landing-cta">Check availability</a>
+        <a href="#book" class="landing-cta">Enquire about dates</a>
         <div class="landing-scroll" aria-hidden="true">
           <span class="landing-scroll-line"></span>
           <span class="landing-scroll-text">Scroll to explore</span>
@@ -971,7 +1101,7 @@
 
       <div class="bedroom">
         <div class="bedroom-image">
-          <img src="images/room-master.jpg" alt="Double bedroom at 55 Malin Road" loading="lazy">
+          <img src="images/room-master.jpg" alt="Bedroom one at 55 Malin Road — double bed with blue striped bedding, grey bedside tables and a wall-mounted hanging rail" loading="lazy">
         </div>
         <div class="bedroom-body">
           <span class="bedroom-num">Bedroom 01</span>
@@ -979,13 +1109,14 @@
           <div class="bedroom-specs">
             <div class="bedroom-spec"><span class="bedroom-spec-key">Bed</span><span>Double</span></div>
             <div class="bedroom-spec"><span class="bedroom-spec-key">Sleeps</span><span>2</span></div>
+            <div class="bedroom-spec"><span class="bedroom-spec-key">Storage</span><span>Hanging rail &amp; drawers</span></div>
           </div>
         </div>
       </div>
 
       <div class="bedroom">
         <div class="bedroom-image">
-          <img src="images/room-double-stripe.jpg" alt="Double bedroom at 55 Malin Road" loading="lazy">
+          <img src="images/room-double-stripe.jpg" alt="Bedroom two at 55 Malin Road — double bed with white and oatmeal bedding, two curtained windows, oak chest of drawers and full-length mirror" loading="lazy">
         </div>
         <div class="bedroom-body">
           <span class="bedroom-num">Bedroom 02</span>
@@ -993,6 +1124,7 @@
           <div class="bedroom-specs">
             <div class="bedroom-spec"><span class="bedroom-spec-key">Bed</span><span>Double</span></div>
             <div class="bedroom-spec"><span class="bedroom-spec-key">Sleeps</span><span>2</span></div>
+            <div class="bedroom-spec"><span class="bedroom-spec-key">Storage</span><span>Chest of drawers</span></div>
           </div>
         </div>
       </div>
@@ -1107,6 +1239,58 @@
       </div>
     </div>
   </div>
+
+  <!-- ── Good to know ──
+       Every value here is taken from the Airbnb listing, so the two are
+       consistent. Still to add once confirmed: minimum stay, cancellation
+       terms for direct bookings, and whether the hot tub is included in
+       the rate. Omitted rather than guessed. -->
+  <section class="essentials" id="essentials" aria-labelledby="essentials-heading">
+    <div class="essentials-inner reveal">
+      <span class="label essentials-label" id="essentials-heading">Good to know</span>
+      <div class="essentials-grid">
+        <div>
+          <p class="essential-key">Check-in</p>
+          <p class="essential-value">After 3pm — self check-in with lockbox</p>
+        </div>
+        <div>
+          <p class="essential-key">Check-out</p>
+          <p class="essential-value">Before 12 noon</p>
+        </div>
+        <div>
+          <p class="essential-key">Minimum stay</p>
+          <p class="essential-value">Two nights</p>
+        </div>
+        <div>
+          <p class="essential-key">Hot tub</p>
+          <p class="essential-value">Included in the rate</p>
+        </div>
+        <div>
+          <p class="essential-key">Guests</p>
+          <p class="essential-value">Six maximum</p>
+        </div>
+        <div>
+          <p class="essential-key">Pets</p>
+          <p class="essential-value">Not permitted</p>
+        </div>
+        <div>
+          <p class="essential-key">House rules</p>
+          <p class="essential-value">No parties, no smoking, no loud music</p>
+        </div>
+        <div>
+          <p class="essential-key">Where</p>
+          <p class="essential-value">
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=55+Malin+Road+Moville+Co+Donegal"
+               target="_blank" rel="noopener">55 Malin Road, Moville &#8599;</a>
+          </p>
+        </div>
+      </div>
+      <p class="essentials-note">
+        Full <a href="terms.html">booking terms and conditions</a>, including cancellation and hot tub safety.
+        Anything else, just ask — <a href="mailto:hello@55malinroad.ie">hello@55malinroad.ie</a>.
+      </p>
+    </div>
+  </section>
 
   <!-- ── Transition ── -->
   <section class="transition-section" aria-label="About the location">
@@ -1237,58 +1421,161 @@
     </div>
   </section>
 
+  <!-- ── Guest reviews ── -->
+  <section class="reviews" aria-labelledby="reviews-heading">
+    <div class="reviews-inner reveal">
+      <span class="label reviews-label" id="reviews-heading">What guests say</span>
+      <div class="reviews-grid">
+
+        <figure class="review">
+          <blockquote class="review-quote">Fantastic house, well renovated. Very clean and uncluttered but still with personality. Even better than the pictures!</blockquote>
+          <figcaption class="review-source">Lisa, April 2025 — via Airbnb</figcaption>
+        </figure>
+
+        <figure class="review">
+          <blockquote class="review-quote">Really great place to stay, close to all the pubs and restaurants. The house is perfect and the hot tub a great bonus.</blockquote>
+          <figcaption class="review-source">Ian, March 2025 — via Airbnb</figcaption>
+        </figure>
+
+        <figure class="review">
+          <blockquote class="review-quote">A beautiful home right near the water and in the middle of everything you could possibly need. Looked exactly like the photos.</blockquote>
+          <figcaption class="review-source">Emma, July 2025 — via Airbnb</figcaption>
+        </figure>
+
+      </div>
+      <p class="reviews-foot">
+        Rated 5.0 from 15 reviews on Airbnb, where the house is a Guest Favourite — the top 5% of eligible listings.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── Gift vouchers ── -->
+  <section class="vouchers" id="vouchers" aria-labelledby="vouchers-heading">
+    <div class="vouchers-inner">
+      <div class="vouchers-header">
+        <h2 class="vouchers-headline reveal" id="vouchers-heading">
+          A stay,<br><em>as a gift.</em>
+        </h2>
+        <p class="vouchers-intro reveal delay-1">Vouchers are monetary, so the amount comes off whatever the recipient decides to book — a long weekend, a week in summer, or a few quiet nights in November.</p>
+      </div>
+      <div class="vouchers-grid reveal">
+
+        <div class="voucher">
+          <p class="voucher-amount">€100</p>
+          <p class="voucher-note">A contribution towards a stay.</p>
+          <button class="voucher-btn" type="button" data-voucher="€100">Request this voucher</button>
+        </div>
+
+        <div class="voucher">
+          <p class="voucher-amount">€250</p>
+          <p class="voucher-note">Covers most of a couple of nights off-season.</p>
+          <button class="voucher-btn" type="button" data-voucher="€250">Request this voucher</button>
+        </div>
+
+        <div class="voucher">
+          <p class="voucher-amount">€500</p>
+          <p class="voucher-note">Towards a longer stay, or a group taking the whole house.</p>
+          <button class="voucher-btn" type="button" data-voucher="€500">Request this voucher</button>
+        </div>
+
+      </div>
+      <p class="vouchers-terms">
+        Valid for five years from the date of purchase. There's no need to spend the full amount in one booking,
+        and vouchers can be used alongside each other. We'll email you the voucher and confirm its expiry date in writing.
+        Any amount other than these three, just ask.
+      </p>
+    </div>
+  </section>
+
   <!-- ── Booking ── -->
   <section class="booking" id="book" aria-labelledby="book-heading">
     <div class="booking-inner">
       <div class="booking-text reveal">
-        <span class="label booking-label">Availability</span>
+        <span class="label booking-label">Enquiries</span>
         <h2 class="booking-headline" id="book-heading">
           Planning<br>your <em>stay?</em>
         </h2>
         <p class="booking-copy">Enquire directly — no platform fees — or book through Airbnb if you prefer the security of their payment system. The house is the same either way.</p>
-        <a href="https://www.airbnb.com" class="booking-airbnb-link" target="_blank" rel="noopener">
+
+        <!-- DEMO FIGURE — derived from €535 for 2 nights on Airbnb less an
+             assumed ~14% guest service fee. Host confirms October is the same
+             rate, so pricing appears flat across seasons rather than peaked.
+             Confirm the exact direct rate before this goes live. -->
+        <p class="booking-price">
+          <strong>€235 a night, booked direct</strong>
+          Two-night minimum. Less than the same dates on Airbnb, where the
+          platform adds its service fee on top.
+        </p>
+
+        <a href="https://www.airbnb.com/rooms/1178956291670277998" class="booking-airbnb-link" target="_blank" rel="noopener">
           Also available on Airbnb
           <span class="booking-airbnb-arrow">→</span>
         </a>
       </div>
-      <div class="booking-form reveal delay-1" role="form" aria-label="Availability enquiry">
+
+      <form
+        class="booking-form reveal delay-1"
+        id="enquiry-form"
+        name="enquiry"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        aria-labelledby="enquiry-heading"
+      >
+        <h3 id="enquiry-heading" class="label" style="margin-bottom:1.5rem;color:rgba(154,147,140,.9);">Send an enquiry</h3>
+
+        <input type="hidden" name="form-name" value="enquiry">
+        <input type="hidden" name="enquiry-type" id="enquiry-type" value="Stay">
+        <p class="form-hp">
+          <label>Leave this field empty <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+        </p>
+
+        <p class="form-context" id="form-context"></p>
+
         <div class="form-row">
           <div class="form-field">
-            <label class="form-label" for="arrival">Arrival</label>
-            <input class="form-input" id="arrival" type="date">
+            <label class="form-label" for="name">Name <span class="form-required" aria-hidden="true">*</span></label>
+            <input class="form-input" id="name" name="name" type="text" autocomplete="name" required>
           </div>
           <div class="form-field">
-            <label class="form-label" for="departure">Departure</label>
-            <input class="form-input" id="departure" type="date">
+            <label class="form-label" for="email">Email <span class="form-required" aria-hidden="true">*</span></label>
+            <input class="form-input" id="email" name="email" type="email" autocomplete="email" required>
           </div>
         </div>
         <div class="form-row">
           <div class="form-field">
-            <label class="form-label" for="occasion">Occasion</label>
-            <select class="form-select" id="occasion">
-              <option>Weekend away</option>
-              <option>Family holiday</option>
-              <option>Group trip</option>
-              <option>Other</option>
-            </select>
+            <label class="form-label" for="arrival">Arrival</label>
+            <input class="form-input" id="arrival" name="arrival" type="date">
           </div>
           <div class="form-field">
+            <label class="form-label" for="departure">Departure</label>
+            <input class="form-input" id="departure" name="departure" type="date">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
             <label class="form-label" for="guests">Guests</label>
-            <select class="form-select" id="guests">
+            <select class="form-select" id="guests" name="guests">
               <option>1–2 guests</option>
               <option>3–4 guests</option>
               <option>5–6 guests</option>
             </select>
           </div>
+          <div class="form-field">
+            <label class="form-label" for="message">Anything we should know?</label>
+            <input class="form-input" id="message" name="message" type="text" autocomplete="off">
+          </div>
         </div>
         <div class="form-foot">
-          <p class="form-foot-note">Or write to<br><a href="mailto:hello@55malinroad.ie">hello@55malinroad.ie</a></p>
-          <button class="btn-enquire" type="submit">
-            Check availability
+          <p class="form-foot-note">We answer every enquiry within 24 hours.<br><a href="mailto:hello@55malinroad.ie">hello@55malinroad.ie</a></p>
+          <button class="btn-enquire" type="submit" id="enquiry-submit">
+            Send enquiry
             <span class="btn-enquire-arrow" aria-hidden="true"></span>
           </button>
         </div>
-      </div>
+
+        <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
+      </form>
     </div>
   </section>
 
@@ -1299,6 +1586,8 @@
         <nav class="footer-nav" aria-label="Footer navigation">
           <a href="#house">Stay</a>
           <a href="#explore">Explore</a>
+          <a href="#vouchers">Gift vouchers</a>
+          <a href="terms.html">Terms</a>
           <a href="mailto:hello@55malinroad.ie">Contact</a>
         </nav>
         <span class="footer-wordmark">55 Malin Road</span>
@@ -1307,6 +1596,20 @@
           <p>Moville, Co. Donegal, Ireland</p>
           <p>© 2026 55 Malin Road</p>
         </div>
+      </div>
+
+      <div class="footer-credit">
+        <a class="footer-credit-link" href="mailto:hello@quietobjects.ie">
+          <svg class="footer-credit-logo" viewBox="0 0 1065 381" xmlns="http://www.w3.org/2000/svg"
+               aria-hidden="true" focusable="false" fill="currentColor" shape-rendering="geometricPrecision">
+            <g fill-rule="evenodd">
+              <path d="M327 197L297 252L228 105L102 381L0 381L181 9L275 9L279 13L345 151Z"/>
+              <path d="M366 381L267 381L267 376C300 300 340 150 420 70C460 30 510 0 562 0C630 0 690 30 726 58L726 62L672 120C650 102 610 80 562 81C530 82 500 110 483 137C460 175 420 280 366 381Z"/>
+              <path d="M625 310L641 303L669 272L789 13L793 9L884 9L1065 381L966 381L932 309L771 309L805 237L900 237L840 105L834 109L738 323L698 366L672 381L489 381L460 366L420 329L420 322L462 231L492 278L532 309L562 318L602 318Z"/>
+            </g>
+          </svg>
+          <span class="footer-credit-text">Website by MCA</span>
+        </a>
       </div>
     </div>
   </footer>
@@ -1337,6 +1640,72 @@
     toggle.addEventListener('click', () => drawer.classList.contains('is-open') ? close() : open());
     overlay.addEventListener('click', close);
     document.querySelectorAll('.drawer-link').forEach(l => l.addEventListener('click', close));
+
+    // ── Enquiry form ──
+    // Submits to Netlify Forms via fetch so we can confirm inline rather than
+    // bouncing the guest to a bare success page. Without JS the form still
+    // POSTs normally and Netlify handles it, so nothing is ever lost.
+    const form    = document.getElementById('enquiry-form');
+    const message = document.getElementById('form-message');
+    const submit  = document.getElementById('enquiry-submit');
+
+    // Departure can't precede arrival.
+    const arrival   = document.getElementById('arrival');
+    const departure = document.getElementById('departure');
+    arrival.addEventListener('change', () => {
+      departure.min = arrival.value || '';
+      if (departure.value && departure.value <= arrival.value) departure.value = '';
+    });
+
+    // Voucher buttons reuse the enquiry form rather than needing their own.
+    // They stamp the hidden enquiry-type field, show the guest what they're
+    // asking for, and hide the date fields, which don't apply to a voucher.
+    const enquiryType = document.getElementById('enquiry-type');
+    const context     = document.getElementById('form-context');
+    const dateRow     = arrival.closest('.form-row');
+
+    document.querySelectorAll('[data-voucher]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const amount = btn.dataset.voucher;
+        enquiryType.value = `Gift voucher — ${amount}`;
+        context.textContent = `You're requesting a ${amount} gift voucher. Tell us who it's for in the last field if you'd like it addressed to them.`;
+        context.classList.add('is-visible');
+        dateRow.style.display = 'none';
+        document.getElementById('book').scrollIntoView({ behavior: 'smooth' });
+        setTimeout(() => document.getElementById('name').focus({ preventScroll: true }), 600);
+      });
+    });
+
+    const say = (text, isError) => {
+      message.textContent = text;
+      message.classList.toggle('is-error', !!isError);
+      message.classList.add('is-visible');
+    };
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!form.reportValidity()) return;
+
+      submit.disabled = true;
+      submit.firstChild.textContent = 'Sending… ';
+
+      try {
+        await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(new FormData(form)).toString()
+        });
+        const isVoucher = enquiryType.value.startsWith('Gift voucher');
+        form.querySelectorAll('.form-row, .form-foot, .form-context').forEach(el => el.style.display = 'none');
+        say(isVoucher
+          ? 'Thank you — we’ll email you the voucher and payment details within 24 hours, along with its expiry date in writing.'
+          : 'Thank you — your enquiry is with us. We answer every enquiry within 24 hours, usually sooner. Check your spam folder if you don’t hear back.');
+      } catch (err) {
+        submit.disabled = false;
+        submit.firstChild.textContent = 'Send enquiry ';
+        say('Something went wrong sending that. Please email hello@55malinroad.ie and we’ll pick it up from there.', true);
+      }
+    });
   </script>
 
 </body>

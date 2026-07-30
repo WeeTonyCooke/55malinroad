@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking Terms — 55 Malin Road</title>
+  <meta name="description" content="Booking terms and conditions for 55 Malin Road, a self-catering holiday home in Moville, Co. Donegal.">
+  <meta name="robots" content="index, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    /* Tokens shared with index.html. Kept inline rather than extracted to a
+       stylesheet: two pages don't justify the extra request, and the site is
+       deliberately dependency-free. If a third page appears, extract these. */
+    :root {
+      --limestone: #EFEFED;
+      --peat:      #1A1714;
+      --peat-light:#2E2A26;
+      --mist:      #6E6862;
+      --oak:       #C2B09A;
+      --border:    rgba(26,23,20,.09);
+      --f-display: 'Cormorant Garamond', Georgia, serif;
+      --f-body:    'Jost', system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--limestone);
+      color: var(--peat);
+      font-family: var(--f-body);
+      font-weight: 400;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+
+    .nav {
+      height: 72px;
+      padding: 0 3rem;
+      display: flex; align-items: center; justify-content: space-between;
+      background: var(--limestone);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-size: .7rem; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--peat); text-decoration: none; white-space: nowrap;
+    }
+    .nav-back { font-size: .65rem; letter-spacing: .16em; text-transform: uppercase; color: var(--mist); text-decoration: none; }
+    .nav-back:hover { color: var(--peat); }
+
+    .wrap { max-width: 760px; margin: 0 auto; padding: clamp(3.5rem,8vw,7rem) 3rem clamp(4rem,8vw,7rem); }
+
+    .page-label { display: block; font-size: .65rem; letter-spacing: .22em; text-transform: uppercase; color: var(--mist); margin-bottom: 1.6rem; }
+    h1 {
+      font-family: var(--f-display); font-weight: 300;
+      font-size: clamp(2.4rem,5vw,3.6rem);
+      line-height: 1.05; letter-spacing: -.02em;
+      margin-bottom: 1.2rem;
+    }
+    h1 em { font-style: italic; }
+    .standfirst { font-size: 1rem; line-height: 1.85; color: var(--peat-light); margin-bottom: 1rem; }
+    .updated { font-size: .75rem; color: var(--mist); }
+
+    h2 {
+      font-family: var(--f-display); font-weight: 300;
+      font-size: clamp(1.5rem,2.4vw,2rem);
+      line-height: 1.2; letter-spacing: -.01em;
+      margin: clamp(3rem,5vw,4rem) 0 1.1rem;
+      padding-top: clamp(2rem,3vw,2.5rem);
+      border-top: 1px solid var(--border);
+    }
+    h2:first-of-type { border-top: none; padding-top: 0; }
+    h3 { font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: var(--mist); margin: 1.8rem 0 .6rem; font-weight: 400; }
+    p  { font-size: .95rem; line-height: 1.85; color: var(--peat-light); }
+    p + p { margin-top: .9rem; }
+    ul { margin: .9rem 0 0 1.1rem; }
+    li { font-size: .95rem; line-height: 1.85; color: var(--peat-light); margin-bottom: .4rem; }
+
+    .callout {
+      margin: 1.4rem 0;
+      padding: 1.2rem 1.4rem;
+      border-left: 2px solid var(--oak);
+      background: rgba(26,23,20,.03);
+    }
+    .callout p { font-size: .9rem; }
+
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 3rem;
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;
+      max-width: 1440px; margin: 0 auto;
+    }
+    .footer a, .footer p { font-size: .65rem; color: var(--mist); text-decoration: none; line-height: 1.9; }
+    .footer a:hover { color: var(--peat); }
+    .footer-credit-link {
+      display: inline-flex; align-items: center; gap: .6rem;
+      color: var(--mist); transition: color .3s ease;
+    }
+    .footer-credit-link:hover { color: var(--peat); }
+    .footer-credit-logo {
+      display: block; height: 15px; width: auto;
+      fill: currentColor; opacity: .6;
+      transition: opacity .3s ease;
+    }
+    .footer-credit-link:hover .footer-credit-logo { opacity: 1; }
+    .footer-credit-text { font-size: .65rem; letter-spacing: .04em; line-height: 1; }
+
+    @media (max-width: 680px) {
+      .nav    { height: 64px; padding: 0 1.5rem; }
+      .wrap   { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .footer { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" aria-label="Main navigation">
+    <a href="index.html" class="nav-logo">55 Malin Road</a>
+    <a href="index.html" class="nav-back">Back to the house</a>
+  </nav>
+
+  <main class="wrap">
+    <span class="page-label">Booking terms</span>
+    <h1>Terms &amp; <em>conditions.</em></h1>
+    <p class="standfirst">
+      These terms apply to stays booked directly with us. Bookings made through Airbnb or
+      Booking.com are governed by that platform's own terms and cancellation policy, which may
+      differ from what follows.
+    </p>
+    <p class="updated">Last updated: July 2026</p>
+
+    <h2>1. Making a booking</h2>
+    <p>
+      A booking is confirmed only once we have written confirmation to you by email and the
+      deposit has been received. An enquiry through this website, by phone or by message is not
+      a confirmed booking, and dates are not held until the deposit clears.
+    </p>
+    <p>
+      The person making the booking must be at least 18 and takes responsibility for everyone in
+      the party, including payment and the condition of the house.
+    </p>
+
+    <h2>2. Payment</h2>
+    <ul>
+      <li>A deposit of 25% of the total is payable to confirm the booking.</li>
+      <li>The balance is due 14 days before arrival.</li>
+      <li>For bookings made within 14 days of arrival, the full amount is payable at the time of booking.</li>
+      <li>Payment is by bank transfer unless we agree otherwise.</li>
+    </ul>
+    <p>
+      If the balance is not received by the due date we may treat the booking as cancelled by you,
+      and the cancellation terms below will apply.
+    </p>
+
+    <h2>3. Minimum stay</h2>
+    <p>
+      Two nights minimum. Longer minimums may apply at Christmas, New Year and bank holiday
+      weekends; we'll tell you at the time of enquiry if so.
+    </p>
+
+    <h2>4. Cancellation by you</h2>
+    <ul>
+      <li>More than 28 days before arrival — full refund of everything paid.</li>
+      <li>14 to 28 days before arrival — deposit retained, any balance paid refunded.</li>
+      <li>Fewer than 14 days before arrival — no refund.</li>
+    </ul>
+    <p>
+      If we are able to re-let the dates, we will refund what we recover, less any shortfall in
+      rate and a €25 administration charge. We strongly recommend travel insurance covering
+      cancellation.
+    </p>
+    <div class="callout">
+      <p>
+        Bookings of accommodation for a specific date are exempt from the 14-day cooling-off
+        period that applies to most distance contracts under Irish and EU consumer law. The terms
+        above are the applicable cancellation terms.
+      </p>
+    </div>
+
+    <h2>5. Cancellation by us</h2>
+    <p>
+      We would only cancel in exceptional circumstances — serious damage, a failure of essential
+      services, or events outside our control. If we do, you will receive a full refund of
+      everything paid. Our liability is limited to that refund and we are not responsible for
+      other costs such as travel or onward bookings.
+    </p>
+
+    <h2>6. Arrival and departure</h2>
+    <p>
+      Check-in is from 3pm, by self check-in using a lockbox. Check-out is by 12 noon. Earlier
+      arrival or later departure can sometimes be arranged — please ask rather than assume, as the
+      house often needs the full window for changeover.
+    </p>
+
+    <h2>7. Occupancy</h2>
+    <p>
+      The house sleeps six and six is the maximum, including children and infants. Additional
+      visitors may not stay overnight. Day visitors are fine in reasonable numbers; parties and
+      events are not permitted, and we may end a stay without refund where this is breached.
+    </p>
+
+    <h2>8. The hot tub</h2>
+    <p>
+      The hot tub is available year-round and is used entirely at your own risk. By booking you
+      accept the following on behalf of everyone in your party:
+    </p>
+    <ul>
+      <li>Children must be supervised by an adult at all times and should not use the tub unaccompanied.</li>
+      <li>No glass of any kind in or near the tub.</li>
+      <li>Do not use the tub while under the influence of alcohol or drugs.</li>
+      <li>Anyone who is pregnant, has heart trouble or high or low blood pressure, or is taking medication, should take medical advice before use.</li>
+      <li>Please shower before entering and do not use bath products in the tub.</li>
+      <li>Keep the cover on when the tub is not in use.</li>
+      <li>Do not adjust the temperature, chemical levels or any part of the equipment.</li>
+    </ul>
+    <p>
+      The tub is drained, cleaned and refilled between stays and may occasionally be unavailable
+      for maintenance or on safety grounds. Where that happens we will tell you as soon as we can.
+      No refund is due for short periods of unavailability, and misuse requiring an unscheduled
+      drain and refill will be charged.
+    </p>
+
+    <h2>9. Care of the house</h2>
+    <p>
+      Please treat the house as you would your own. You are responsible for any damage or breakage
+      beyond ordinary wear, and we may charge for repair or replacement. Please tell us about
+      breakages rather than leaving us to find them — accidents happen and are usually not charged.
+    </p>
+    <h3>Before you leave</h3>
+    <ul>
+      <li>Gather used towels.</li>
+      <li>Put rubbish and recycling out.</li>
+      <li>Turn off lights, heating and appliances.</li>
+      <li>Return the keys to the lockbox.</li>
+      <li>Lock up.</li>
+    </ul>
+
+    <h2>10. Smoking and pets</h2>
+    <p>
+      The house is entirely non-smoking, including vaping, and this extends to the bedrooms and
+      the enclosed patio area. Smoking indoors will be charged for at the cost of specialist
+      cleaning. Pets are not permitted. Registered assistance dogs are welcome — please tell us
+      when you book.
+    </p>
+
+    <h2>11. Noise and neighbours</h2>
+    <p>
+      55 Malin Road is a home in a residential street with neighbours either side. Please keep
+      noise down after 11pm, particularly outside and at the hot tub, where sound carries further
+      than you would think.
+    </p>
+
+    <h2>12. What's included</h2>
+    <p>
+      Bed linen, towels, heating, electricity, Wi-Fi, use of the hot tub and an initial supply of
+      basics are all included in the rate — there is no additional charge for the hot tub. Beach
+      towels for the hot tub are provided; please don't take the bath towels outside. A travel cot
+      and highchair are available on request.
+    </p>
+
+    <h2>13. Liability</h2>
+    <p>
+      We are not liable for loss or damage to your belongings, or for personal injury, except
+      where caused by our negligence. Nothing in these terms limits liability for death or
+      personal injury caused by negligence, or for fraud. Your statutory rights as a consumer are
+      not affected.
+    </p>
+
+    <h2>14. Gift vouchers</h2>
+    <p>
+      Vouchers are valid for five years from the date of purchase, as required by the Consumer
+      Protection (Gift Vouchers) Act 2019. There is no requirement to spend the full value in a
+      single booking, more than one voucher may be used together, and we will confirm the expiry
+      date to you in writing. Vouchers are not exchangeable for cash and are applied against the
+      cost of a stay.
+    </p>
+
+    <h2>15. Your information</h2>
+    <p>
+      When you make an enquiry or booking we collect your name, email address, the dates and
+      party size, and anything you tell us in your message. We use it only to answer your enquiry
+      and manage your stay. We do not sell it or use it for marketing unless you ask us to.
+    </p>
+    <p>
+      Enquiries submitted through this website are processed by Netlify, our hosting provider.
+      We keep booking records for six years to meet Revenue requirements, and delete unsuccessful
+      enquiries after twelve months. You may ask to see, correct or delete what we hold by writing
+      to <a href="mailto:hello@55malinroad.ie">hello@55malinroad.ie</a>, and you may complain to
+      the Data Protection Commission.
+    </p>
+
+    <h2>16. Complaints</h2>
+    <p>
+      If something is wrong during your stay, please tell us straight away so we have the chance
+      to put it right. We can rarely do much about a problem first raised after you've gone home.
+    </p>
+
+    <h2>17. Governing law</h2>
+    <p>
+      These terms are governed by the law of Ireland and subject to the jurisdiction of the Irish
+      courts.
+    </p>
+
+    <h2>Contact</h2>
+    <p>
+      55 Malin Road, Moville, Co. Donegal, Ireland<br>
+      <a href="mailto:hello@55malinroad.ie">hello@55malinroad.ie</a>
+    </p>
+  </main>
+
+  <footer class="footer">
+    <a href="index.html">Back to the house</a>
+    <p>© 2026 55 Malin Road</p>
+    <a class="footer-credit-link" href="mailto:hello@quietobjects.ie">
+      <svg class="footer-credit-logo" viewBox="0 0 1065 381" xmlns="http://www.w3.org/2000/svg"
+           aria-hidden="true" focusable="false" fill="currentColor" shape-rendering="geometricPrecision">
+        <g fill-rule="evenodd">
+          <path d="M327 197L297 252L228 105L102 381L0 381L181 9L275 9L279 13L345 151Z"/>
+          <path d="M366 381L267 381L267 376C300 300 340 150 420 70C460 30 510 0 562 0C630 0 690 30 726 58L726 62L672 120C650 102 610 80 562 81C530 82 500 110 483 137C460 175 420 280 366 381Z"/>
+          <path d="M625 310L641 303L669 272L789 13L793 9L884 9L1065 381L966 381L932 309L771 309L805 237L900 237L840 105L834 109L738 323L698 366L672 381L489 381L460 366L420 329L420 322L462 231L492 278L532 309L562 318L602 318Z"/>
+        </g>
+      </svg>
+      <span class="footer-credit-text">Website by MCA</span>
+    </a>
+  </footer>
+
+</body>
+</html>
