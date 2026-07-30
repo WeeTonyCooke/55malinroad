@@ -1764,10 +1764,11 @@
   <script>
     // Sticky enquiry bar (small screens only — the CSS gates it at 680px).
     (function () {
-      const bar   = document.getElementById('enquiryBar');
-      const price = document.getElementById('enquiryBarPrice');
-      const hero  = document.querySelector('.landing-cta');
-      const book  = document.getElementById('book');
+      const bar      = document.getElementById('enquiryBar');
+      const price    = document.getElementById('enquiryBarPrice');
+      const hero     = document.querySelector('.landing-cta');
+      const book     = document.getElementById('book');
+      const vouchers = document.getElementById('vouchers');
       if (!bar || !book) return;
 
       // Single source of truth for the rate: read the figure already on the
@@ -1778,11 +1779,18 @@
       let queued = false;
       const update = () => {
         queued = false;
+        const inView = (el) => {
+          if (!el) return false;
+          const r = el.getBoundingClientRect();
+          return r.top < window.innerHeight && r.bottom > 0;
+        };
         const pastHero = hero ? hero.getBoundingClientRect().bottom < 0 : window.scrollY > 600;
         // Stand down once the form is in view, so the bar never covers the
         // thing it points at.
         const atForm = book.getBoundingClientRect().top < window.innerHeight;
-        const show = pastHero && !atForm;
+        // Also stand down over the vouchers, where the relevant action is
+        // "Request this voucher" and a nightly rate is the wrong prompt.
+        const show = pastHero && !atForm && !inView(vouchers);
         bar.classList.toggle('is-visible', show);
         bar.setAttribute('aria-hidden', show ? 'false' : 'true');
       };
