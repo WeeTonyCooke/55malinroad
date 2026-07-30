@@ -1,2 +1,28 @@
 [build]
   publish = "."
+  functions = "netlify/functions"
+
+# publish = "." serves the whole repo, so keep the function source and any
+# working files out of the public site.
+[[headers]]
+  for = "/netlify/*"
+  [headers.values]
+    X-Robots-Tag = "noindex"
+
+[[redirects]]
+  from = "/netlify/*"
+  to = "/"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/CONTENT.md"
+  to = "/"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/download-images.sh"
+  to = "/"
+  status = 404
+  force = true
