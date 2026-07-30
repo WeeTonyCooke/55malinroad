@@ -503,7 +503,7 @@
       padding: 2rem;
       background: linear-gradient(to top, rgba(12,9,8,.72) 0%, transparent 55%);
     }
-    .explore-tag   { font-size: .58rem; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.55); margin-bottom: .5rem; }
+    .explore-tag   { font-size: .58rem; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.72); margin-bottom: .5rem; }
     .explore-title { font-family: var(--f-display); font-weight: 300; font-size: 1.7rem; color: #fff; line-height: 1.15; }
     .explore-title em { font-style: italic; }
 
@@ -580,6 +580,42 @@
     .btn-enquire:hover { background: #fff; }
     .btn-enquire-arrow { display: block; width: 20px; height: 1px; background: currentColor; transition: width .35s var(--ease-out); }
     .btn-enquire:hover .btn-enquire-arrow { width: 32px; }
+
+    /* ─── Sticky mobile enquiry bar ─── */
+    /* The page runs to ~20 screens on a phone and the header collapses to a
+       hamburger there, so between the hero and the form there is no visible
+       way to act. This bar fills that gap on small screens only. */
+    .enquiry-bar {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 90;
+      display: none;
+      align-items: center; justify-content: space-between; gap: 1rem;
+      padding: .85rem 1.25rem;
+      padding-bottom: calc(.85rem + env(safe-area-inset-bottom, 0px));
+      background: var(--peat);
+      border-top: 1px solid rgba(194,176,154,.18);
+      font-family: var(--f-body);
+      visibility: hidden; opacity: 0; transform: translateY(100%);
+      transition: transform .4s var(--ease-out), opacity .3s ease, visibility 0s linear .4s;
+    }
+    @media (max-width: 680px) { .enquiry-bar { display: flex; } }
+    .enquiry-bar.is-visible {
+      visibility: visible; opacity: 1; transform: translateY(0);
+      transition: transform .4s var(--ease-out), opacity .3s ease, visibility 0s;
+    }
+    .enquiry-bar-price { color: var(--limestone); font-size: .8rem; letter-spacing: .02em; line-height: 1.3; }
+    .enquiry-bar-price:empty { display: none; }
+    .enquiry-bar-cta {
+      flex: 0 0 auto; min-height: 48px;
+      display: inline-flex; align-items: center; padding: 0 1.6rem;
+      background: var(--limestone); color: var(--peat);
+      font-size: .65rem; letter-spacing: .2em; text-transform: uppercase;
+      transition: background .3s ease;
+    }
+    .enquiry-bar-cta:active { background: var(--oak); }
+    .enquiry-bar-cta:focus-visible { outline: 2px solid var(--oak); outline-offset: 3px; }
+    @media (prefers-reduced-motion: reduce) {
+      .enquiry-bar, .enquiry-bar.is-visible { transition: opacity .2s ease; transform: none; }
+    }
 
     /* ─── Footer ─── */
     .footer-cta {
@@ -1390,7 +1426,7 @@
         </article>
 
         <article class="explore-card reveal delay-1">
-          <img src="images/explore-surf.jpg" alt="Atlantic waves at Culdaff — Culdaff Surf School" loading="lazy" style="object-position: center 55%;">
+          <img src="images/explore-surf.jpg" alt="Atlantic waves at Culdaff — Culdaff Surf School" loading="lazy">
           <div class="explore-overlay">
             <span class="explore-tag">about 15 minutes</span>
             <h3 class="explore-title">Culdaff<br><em>Surf School</em></h3>
@@ -1718,6 +1754,44 @@
         say('Something went wrong sending that. Please email hello@55malinroad.ie and we’ll pick it up from there.', true);
       }
     });
+  </script>
+
+  <div class="enquiry-bar" id="enquiryBar" aria-hidden="true">
+    <span class="enquiry-bar-price" id="enquiryBarPrice"></span>
+    <a href="#book" class="enquiry-bar-cta">Enquire</a>
+  </div>
+
+  <script>
+    // Sticky enquiry bar (small screens only — the CSS gates it at 680px).
+    (function () {
+      const bar   = document.getElementById('enquiryBar');
+      const price = document.getElementById('enquiryBarPrice');
+      const hero  = document.querySelector('.landing-cta');
+      const book  = document.getElementById('book');
+      if (!bar || !book) return;
+
+      // Single source of truth for the rate: read the figure already on the
+      // page rather than repeating it here, so the two can never drift.
+      const onPage = document.querySelector('.booking-price strong');
+      if (onPage) price.textContent = onPage.textContent.split(',')[0].trim();
+
+      let queued = false;
+      const update = () => {
+        queued = false;
+        const pastHero = hero ? hero.getBoundingClientRect().bottom < 0 : window.scrollY > 600;
+        // Stand down once the form is in view, so the bar never covers the
+        // thing it points at.
+        const atForm = book.getBoundingClientRect().top < window.innerHeight;
+        const show = pastHero && !atForm;
+        bar.classList.toggle('is-visible', show);
+        bar.setAttribute('aria-hidden', show ? 'false' : 'true');
+      };
+      const onScroll = () => { if (!queued) { queued = true; requestAnimationFrame(update); } };
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll, { passive: true });
+      update();
+    })();
   </script>
 
 </body>
