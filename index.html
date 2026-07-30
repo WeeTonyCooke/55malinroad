@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>55 Malin Road — Inishowen, Donegal</title>
-  <meta name="description" content="A three-bedroom holiday home in the heart of Moville, Co. Donegal. Sleeps six. Private hot tub.">
+  <meta name="description" content="A three-bedroom holiday home in the heart of Moville, Co. Donegal. Sleeps six. Wood-fired hot tub.">
   <link rel="canonical" href="https://www.55malinroad.com/">
 
   <!-- Social sharing. Absolute URLs are required by most scrapers, so these
@@ -12,7 +12,7 @@
   <meta property="og:type"        content="website">
   <meta property="og:site_name"   content="55 Malin Road">
   <meta property="og:title"       content="55 Malin Road — a quieter way to stay">
-  <meta property="og:description" content="A three-bedroom holiday home in the heart of Moville, Co. Donegal. Sleeps six. Private hot tub.">
+  <meta property="og:description" content="A three-bedroom holiday home in the heart of Moville, Co. Donegal. Sleeps six. Wood-fired hot tub.">
   <meta property="og:url"         content="https://www.55malinroad.com/">
   <meta property="og:image"       content="https://www.55malinroad.com/images/og-card.jpg">
   <meta property="og:image:width"  content="1200">
@@ -33,7 +33,7 @@
     "@type": "LodgingBusiness",
     "@id": "https://www.55malinroad.com/#lodging",
     "name": "55 Malin Road",
-    "description": "A three-bedroom holiday home in the heart of Moville, Co. Donegal. Sleeps six. Private hot tub.",
+    "description": "A three-bedroom holiday home in the heart of Moville, Co. Donegal. Sleeps six. Wood-fired hot tub.",
     "url": "https://www.55malinroad.com/",
     "image": "https://www.55malinroad.com/images/og-card.jpg",
     "email": "hello@55malinroad.ie",
@@ -53,7 +53,7 @@
     "currenciesAccepted": "EUR",
     "occupancy": { "@type": "QuantitativeValue", "maxValue": 6, "unitText": "person" },
     "amenityFeature": [
-      { "@type": "LocationFeatureSpecification", "name": "Private hot tub",  "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Wood-fired hot tub",  "value": true },
       { "@type": "LocationFeatureSpecification", "name": "Free Wi-Fi",       "value": true },
       { "@type": "LocationFeatureSpecification", "name": "Fully equipped kitchen", "value": true },
       { "@type": "LocationFeatureSpecification", "name": "Self check-in",    "value": true },
@@ -67,6 +67,13 @@
       "reviewCount": 15
     },
     "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Michael" },
+        "datePublished": "2025-07",
+        "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5 },
+        "reviewBody": "I am both a host and have stayed at Airbnbs across the globe, and have to say that Oran and Katrina's place is possibly my favourite and certainly in the top five."
+      },
       {
         "@type": "Review",
         "author": { "@type": "Person", "name": "Lisa" },
@@ -700,6 +707,70 @@
     .btn-outline:hover { background: var(--peat); color: var(--limestone); }
     .btn-outline:focus-visible { outline: 2px solid var(--atlantic); outline-offset: 3px; }
 
+    /* ─── Pull quotes ───
+       Guest words placed against the doubt they answer, rather than all
+       collected in one block at the foot of the page. */
+    .pullquote { padding: clamp(3.5rem,7vw,6rem) 3rem; }
+    .pullquote-inner { max-width: 780px; margin: 0 auto; text-align: center; }
+    .pullquote-text {
+      font-family: var(--f-display);
+      font-weight: 300;
+      font-size: clamp(1.35rem,2.6vw,2rem);
+      line-height: 1.45;
+      letter-spacing: -.01em;
+      color: var(--peat);
+    }
+    .pullquote-source {
+      margin-top: 1.6rem;
+      font-size: .62rem; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--mist);
+    }
+
+    /* ─── Hosts ─── */
+    .hosts { padding: clamp(4rem,8vw,7rem) 3rem; border-top: 1px solid var(--border); }
+    .hosts-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: clamp(3rem,6vw,6rem); align-items: start;
+    }
+    .hosts-headline {
+      font-family: var(--f-display); font-weight: 300;
+      font-size: clamp(2rem,3.6vw,3.2rem); line-height: 1.05; letter-spacing: -.02em;
+      margin-bottom: 1.8rem;
+    }
+    .hosts-headline em { font-style: italic; }
+    .hosts-body p { font-size: 1rem; line-height: 1.85; color: var(--peat-light); max-width: 46ch; }
+    .hosts-body p + p { margin-top: 1.4rem; }
+
+    /* ─── Category scores ─── */
+    .scores {
+      display: grid; grid-template-columns: repeat(5,1fr);
+      gap: 1px; margin-top: 3.5rem;
+      border-top: 1px solid var(--border);
+    }
+    .score { padding: 1.6rem 0 0; }
+    .score-value { font-family: var(--f-display); font-weight: 300; font-size: 1.9rem; line-height: 1; }
+    .score-key {
+      display: block; margin-top: .6rem;
+      font-size: .58rem; letter-spacing: .18em; text-transform: uppercase; color: var(--mist);
+    }
+
+    /* ─── Featured review ─── */
+    .review-feature {
+      margin-bottom: clamp(2.5rem,5vw,4rem);
+      padding-bottom: clamp(2.5rem,5vw,4rem);
+      border-bottom: 1px solid var(--border);
+    }
+    .review-feature blockquote {
+      font-family: var(--f-display); font-weight: 300;
+      font-size: clamp(1.2rem,2.2vw,1.7rem); line-height: 1.5; letter-spacing: -.01em;
+      max-width: 40ch;
+    }
+    .review-feature figcaption {
+      margin-top: 1.4rem;
+      font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; color: var(--mist);
+    }
+
     /* ─── Sticky mobile enquiry bar ─── */
     /* The page runs to ~20 screens on a phone and the header collapses to a
        hamburger there, so between the hero and the form there is no visible
@@ -909,6 +980,9 @@
     /* ─── Responsive ─── */
     @media (max-width: 1200px) {
       .explore-grid          { grid-template-columns: repeat(2,1fr); }
+      .pullquote             { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .hosts                 { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .scores                { grid-template-columns: repeat(2,1fr); }
       .explore-card--feature { grid-column: 1 / -1; aspect-ratio: 16/7; }
       .life-grid             { grid-template-columns: repeat(3,1fr); }
     }
@@ -926,6 +1000,8 @@
       .life-header     { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
       .life-intro      { max-width: 100%; }
       .explore-header  { grid-template-columns: 1fr; gap: 2rem; }
+      .hosts-inner     { grid-template-columns: 1fr; gap: 2.5rem; }
+      .scores          { grid-template-columns: repeat(3,1fr); row-gap: 1.5rem; }
       .booking-inner   { grid-template-columns: 1fr; gap: 4rem; }
       .facilities-grid { grid-template-columns: repeat(4,1fr); }
       .essentials-grid { grid-template-columns: repeat(2,1fr); }
@@ -1231,6 +1307,15 @@
     </div>
   </section>
 
+  <!-- Placed here on purpose: the reader has just seen the first interior
+       shot, and the doubt at that moment is whether the photos flatter it. -->
+  <section class="pullquote" aria-label="Guest review">
+    <figure class="pullquote-inner reveal">
+      <blockquote class="pullquote-text">Very clean and uncluttered but still with personality. Even better than the pictures.</blockquote>
+      <figcaption class="pullquote-source">Lisa, April 2025 — via Airbnb</figcaption>
+    </figure>
+  </section>
+
   <div class="divider"></div>
 
   <!-- ── 03 The House ── -->
@@ -1348,13 +1433,20 @@
       <h2 class="outside-headline" id="outside-heading">
         Slow evenings<br><em>outside.</em>
       </h2>
-      <p class="outside-body">A private patio with outdoor seating and BBQ. The hot tub is available year-round.</p>
+      <p class="outside-body">A private patio with a wood-fired hot tub, outdoor seating and a BBQ. The tub is lit year-round.</p>
       <div class="outside-specs">
-        <div class="outside-spec"><span class="outside-spec-key">Hot tub</span><span>Private, year-round</span></div>
+        <div class="outside-spec"><span class="outside-spec-key">Hot tub</span><span>Wood-fired, year-round</span></div>
         <div class="outside-spec"><span class="outside-spec-key">Seating</span><span>Patio &amp; outdoor table</span></div>
         <div class="outside-spec"><span class="outside-spec-key">BBQ</span><span>Included</span></div>
       </div>
     </div>
+  </section>
+
+  <section class="pullquote" aria-label="Guest review">
+    <figure class="pullquote-inner reveal">
+      <blockquote class="pullquote-text">The house is perfect and the hot tub a great bonus. Thank you, we will be back.</blockquote>
+      <figcaption class="pullquote-source">Ian, March 2025 — via Airbnb</figcaption>
+    </figure>
   </section>
 
   <!-- ── Facilities ── -->
@@ -1385,7 +1477,7 @@
 
         <div class="facility">
           <span class="facility-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2 12h20v3.5a4.5 4.5 0 0 1-4.5 4.5h-11A4.5 4.5 0 0 1 2 15.5V12Z"/><path d="M5 16c1.2 0 1.2-1 2.4-1s1.2 1 2.4 1 1.2-1 2.4-1 1.2 1 2.4 1 1.2-1 2.4-1"/><path d="M8 9c0-1 .9-1.3.9-2.3S8 5.1 8 4.2"/><path d="M16 9c0-1 .9-1.3.9-2.3S16 5.1 16 4.2"/></svg></span>
-          <span class="facility-name">Private Hot Tub</span>
+          <span class="facility-name">Wood-Fired Hot Tub</span>
         </div>
 
         <div class="facility">
@@ -1467,12 +1559,32 @@
     </div>
   </section>
 
-  <!-- ── Transition ── -->
-  <section class="transition-section" aria-label="About the location">
-    <div class="transition-inner reveal">
-      <span class="label transition-label">Your base in Moville</span>
-      <p class="transition-text">From morning walks along the shore to days exploring Inishowen, 55 Malin Road puts everything within easy reach.</p>
+  <!-- ── Your hosts ──
+       Added because the reviews are full of Oran and Katrina by name —
+       hospitality is the second most mentioned theme on the listing — while
+       the site said nothing about them at all. -->
+  <section class="hosts" id="hosts" aria-labelledby="hosts-heading">
+    <div class="hosts-inner">
+      <div class="reveal">
+        <span class="label">Your hosts</span>
+        <h2 class="hosts-headline" id="hosts-heading">
+          Oran and<br><em>Katrina.</em>
+        </h2>
+      </div>
+      <div class="hosts-body reveal delay-1">
+        <p>We live in Moville and look after the house ourselves. That means you get a straight answer to an email, a key in a lockbox whenever you arrive, and someone nearby if anything needs sorting.</p>
+        <p>There'll be a basket waiting when you get in — bread, milk in the fridge, eggs from up the road, a bottle of wine. And if you want to know where to eat or where the good walk starts, just ask. We'd rather you didn't have to look it up.</p>
+      </div>
     </div>
+  </section>
+
+  <!-- Esther, in place of a line of our own about the location: she makes
+       the same point with more authority. -->
+  <section class="pullquote" aria-label="Guest review">
+    <figure class="pullquote-inner reveal">
+      <blockquote class="pullquote-text">Close to the sea and walking distance to loads of restaurants, shops and everything you may need.</blockquote>
+      <figcaption class="pullquote-source">Esther, August 2024 — via Airbnb</figcaption>
+    </figure>
   </section>
 
   <!-- ── Life Here ── -->
@@ -1480,7 +1592,7 @@
     <div class="life-inner">
       <div class="life-header">
         <h2 class="life-headline reveal" id="life-heading">
-          Life<br><em>here.</em>
+          The town,<br><em>on foot.</em>
         </h2>
         <p class="life-intro reveal delay-1">Moville is a small town with a beautiful waterfront, a handful of good places to eat and drink, and a community that runs a fun-packed festival each summer.</p>
       </div>
@@ -1536,7 +1648,7 @@
           <!-- Drive times deliberately left out here: every card below carries
                its own, so repeating them in prose said everything twice. -->
           <p>Malin Head, Five Finger Strand, the surf at Culdaff — all an easy morning out and back.</p>
-          <p>Cross the Foyle by ferry and the Causeway Coast opens up: the Giant's Causeway, the Antrim cliffs, Carrick-a-Rede. On a clear night, Inishowen is one of the best places in Ireland to catch the aurora.</p>
+          <p>Cross the Foyle by ferry — one guest called it "only minutes from the ferry to NI" — and the Causeway Coast opens up: the Giant's Causeway, the Antrim cliffs, Carrick-a-Rede. On a clear night, Inishowen is one of the best places in Ireland to catch the aurora.</p>
         </div>
       </div>
       <div class="explore-grid">
@@ -1601,28 +1713,46 @@
     </div>
   </section>
 
-  <!-- ── Guest reviews ── -->
+  <!-- ── Guest reviews ──
+       Lisa, Ian and Esther now appear beside the things they are talking
+       about, so this block carries the ones that speak to the whole stay,
+       plus the category scores from the listing. -->
   <section class="reviews" aria-labelledby="reviews-heading">
     <div class="reviews-inner reveal">
       <span class="label reviews-label" id="reviews-heading">What guests say</span>
+
+      <figure class="review-feature">
+        <blockquote>I am both a host and have stayed at Airbnbs across the globe, and have to say that Oran and Katrina's place is possibly my favourite and certainly in the top five.</blockquote>
+        <figcaption>Michael, July 2025 — via Airbnb</figcaption>
+      </figure>
+
       <div class="reviews-grid">
-
-        <figure class="review">
-          <blockquote class="review-quote">Fantastic house, well renovated. Very clean and uncluttered but still with personality. Even better than the pictures!</blockquote>
-          <figcaption class="review-source">Lisa, April 2025 — via Airbnb</figcaption>
-        </figure>
-
-        <figure class="review">
-          <blockquote class="review-quote">Really great place to stay, close to all the pubs and restaurants. The house is perfect and the hot tub a great bonus.</blockquote>
-          <figcaption class="review-source">Ian, March 2025 — via Airbnb</figcaption>
-        </figure>
 
         <figure class="review">
           <blockquote class="review-quote">A beautiful home right near the water and in the middle of everything you could possibly need. Looked exactly like the photos.</blockquote>
           <figcaption class="review-source">Emma, July 2025 — via Airbnb</figcaption>
         </figure>
 
+        <figure class="review">
+          <blockquote class="review-quote">They really have all boxes ticked to make it a home from home. Property was spotless and communication was excellent.</blockquote>
+          <figcaption class="review-source">Aran, August 2024 — via Airbnb</figcaption>
+        </figure>
+
+        <figure class="review">
+          <blockquote class="review-quote">The house is absolutely beautiful and equipped with everything one would need. Its central location makes it easy to access shops and restaurants.</blockquote>
+          <figcaption class="review-source">Mary, October 2024 — via Airbnb</figcaption>
+        </figure>
+
       </div>
+
+      <div class="scores">
+        <div class="score"><span class="score-value">5.0</span><span class="score-key">Cleanliness</span></div>
+        <div class="score"><span class="score-value">5.0</span><span class="score-key">Accuracy</span></div>
+        <div class="score"><span class="score-value">5.0</span><span class="score-key">Check-in</span></div>
+        <div class="score"><span class="score-value">5.0</span><span class="score-key">Communication</span></div>
+        <div class="score"><span class="score-value">4.9</span><span class="score-key">Location</span></div>
+      </div>
+
       <p class="reviews-foot">
         Rated 5.0 from 15 reviews on Airbnb, where the house is a Guest Favourite — the top 5% of eligible listings.
       </p>
