@@ -591,7 +591,8 @@
       letter-spacing: -.02em;
     }
     .explore-headline em { font-style: italic; }
-    .explore-intro-text { font-size: 1rem; line-height: 1.85; color: var(--peat-light); }
+    .explore-intro-text { font-size: 1rem; line-height: 1.85; color: var(--peat-light); max-width: 46ch; }
+    .explore-intro-text p + p { margin-top: 1.4rem; }
     .explore-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 3px; }
     .explore-card { position: relative; overflow: hidden; aspect-ratio: 3/4; }
     .explore-card--feature { grid-column: 1 / -1; aspect-ratio: 21/8; }
@@ -1531,7 +1532,12 @@
         <h2 class="explore-headline reveal" id="explore-heading">
           Days worth<br><em>taking.</em>
         </h2>
-        <p class="explore-intro-text reveal delay-1">Five Finger Strand is about half an hour. Culdaff Surf School is about fifteen. Malin Head, about forty. Cross the Foyle by ferry and head for the Giant's Causeway, the Antrim Coast or the famous Carrick-a-Rede Rope Bridge. On clear nights, Inishowen is one of Ireland's best places to catch a glimpse of the aurora — breathtaking!</p>
+        <div class="explore-intro-text reveal delay-1">
+          <!-- Drive times deliberately left out here: every card below carries
+               its own, so repeating them in prose said everything twice. -->
+          <p>Malin Head, Five Finger Strand, the surf at Culdaff — all an easy morning out and back.</p>
+          <p>Cross the Foyle by ferry and the Causeway Coast opens up: the Giant's Causeway, the Antrim cliffs, Carrick-a-Rede. On a clear night, Inishowen is one of the best places in Ireland to catch the aurora.</p>
+        </div>
       </div>
       <div class="explore-grid">
 
