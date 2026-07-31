@@ -162,6 +162,20 @@
     .divider { height: 1px; background: var(--border); max-width: 1440px; margin: 0 auto; }
 
     /* ─── Reveal ─── */
+    /* ─── Skip link ───
+       The first focusable element on the page, so a keyboard user can jump
+       past the nav instead of tabbing it on every page. Off-screen until
+       focused. */
+    .skip-link {
+      position: absolute; left: 1rem; top: -100%;
+      z-index: 200;
+      padding: .85rem 1.4rem;
+      background: var(--peat); color: var(--limestone);
+      font-family: var(--f-body);
+      font-size: .68rem; letter-spacing: .16em; text-transform: uppercase;
+    }
+    .skip-link:focus { top: 1rem; }
+
     /* ─── Focus ───
        One base rule rather than per-component, so anything focusable is
        covered by default. Light sections take the atlantic outline; the dark
@@ -1327,6 +1341,8 @@
 </head>
 <body>
 
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <!-- Nav -->
   <nav class="nav" id="nav" aria-label="Main navigation">
     <a href="#" class="nav-logo">55 Malin Road</a>
@@ -1336,7 +1352,7 @@
       <li><a href="#explore">Explore</a></li>
       <li><a href="#book">Book</a></li>
     </ul>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+    <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
       <span></span><span></span><span></span>
     </button>
   </nav>
@@ -1352,6 +1368,8 @@
       </ul>
     </div>
   </div>
+
+  <main id="main">
 
   <!-- ── 01 Hero ── -->
   <section aria-label="Welcome">
@@ -1964,6 +1982,8 @@
     </div>
   </section>
 
+  </main>
+
   <!-- ── Footer ── -->
   <footer>
     <div class="footer-base">
@@ -2043,6 +2063,15 @@
     toggle.addEventListener('click', () => drawer.classList.contains('is-open') ? close() : open());
     overlay.addEventListener('click', close);
     document.querySelectorAll('.drawer-link').forEach(l => l.addEventListener('click', close));
+
+    // Escape closes it, and focus returns to the button that opened it —
+    // otherwise a keyboard user is left with focus on a panel that has gone.
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && drawer.classList.contains('is-open')) {
+        close();
+        toggle.focus();
+      }
+    });
 
     // ── Enquiry form ──
     // Submits to Netlify Forms via fetch so we can confirm inline rather than
