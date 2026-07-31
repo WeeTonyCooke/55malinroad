@@ -162,6 +162,24 @@
     .divider { height: 1px; background: var(--border); max-width: 1440px; margin: 0 auto; }
 
     /* ─── Reveal ─── */
+    /* ─── Focus ───
+       One base rule rather than per-component, so anything focusable is
+       covered by default. Light sections take the atlantic outline; the dark
+       panels take oak, which is the only one of the two visible on peat. */
+    :focus-visible {
+      outline: 2px solid var(--atlantic);
+      outline-offset: 3px;
+      border-radius: 1px;
+    }
+    .facilities :focus-visible,
+    .booking :focus-visible,
+    .footer-cta :focus-visible,
+    .footer :focus-visible,
+    .enquiry-bar :focus-visible,
+    .nav :focus-visible { outline-color: var(--oak); }
+    /* the nav sits on the hero photo until it solidifies */
+    .nav.is-solid :focus-visible { outline-color: var(--atlantic); }
+
     .reveal {
       opacity: 0;
       transform: translateY(22px);
@@ -653,10 +671,14 @@
       border-bottom: 1px solid rgba(253,252,250,.1);
       transition: background .3s ease;
     }
-    .form-field:focus-within { background: rgba(253,252,250,.07); }
+    .form-field:focus-within {
+      background: rgba(253,252,250,.07);
+      outline: 2px solid var(--oak);
+      outline-offset: -2px;
+    }
     .form-label { display: block; font-size: .58rem; letter-spacing: .22em; text-transform: uppercase; color: rgba(154,147,140,.9); margin-bottom: .5rem; }
     .form-input, .form-select {
-      width: 100%; background: none; border: none; outline: none;
+      width: 100%; background: none; border: none; outline: none; /* indicator moves to .form-field below */
       font-family: var(--f-body); font-weight: 400; font-size: .9rem; color: var(--limestone);
     }
     .form-select option { background: var(--peat-mid); }
@@ -705,7 +727,6 @@
       transition: background .3s ease, color .3s ease;
     }
     .btn-outline:hover { background: var(--peat); color: var(--limestone); }
-    .btn-outline:focus-visible { outline: 2px solid var(--atlantic); outline-offset: 3px; }
 
     /* ─── Pull quotes ───
        Guest words placed against the doubt they answer, rather than all
@@ -802,9 +823,23 @@
       transition: background .3s ease;
     }
     .enquiry-bar-cta:active { background: var(--oak); }
-    .enquiry-bar-cta:focus-visible { outline: 2px solid var(--oak); outline-offset: 3px; }
+    /* ─── Reduced motion ───
+       36 elements fade and rise on scroll, images zoom slowly on hover, and
+       the page scrolls smoothly. For anyone with vestibular sensitivity that
+       is a lot of unrequested movement, so switch all of it off together. */
     @media (prefers-reduced-motion: reduce) {
-      .enquiry-bar, .enquiry-bar.is-visible { transition: opacity .2s ease; transform: none; }
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+        transition-delay: 0s !important;
+      }
+      html { scroll-behavior: auto; }
+      /* .reveal must still end up visible, not merely un-animated */
+      .reveal { opacity: 1 !important; transform: none !important; }
+      .explore-card img, .life-card-image img, .room-image img,
+      .intro-image img, .outside-image img { transform: none !important; }
+      .enquiry-bar, .enquiry-bar.is-visible { transform: none; }
     }
 
     /* ─── Footer ─── */
@@ -1245,6 +1280,13 @@
     }
 
   </style>
+  <noscript>
+    <!-- .reveal starts hidden and is shown by script; without JS the page
+         would render blank, so opt every element back into view. -->
+    <style>
+      .reveal { opacity: 1 !important; transform: none !important; }
+    </style>
+  </noscript>
 </head>
 <body>
 
@@ -1982,7 +2024,8 @@
         context.textContent = `You're requesting a ${amount} gift voucher. Tell us who it's for in the last field if you'd like it addressed to them.`;
         context.classList.add('is-visible');
         dateRow.style.display = 'none';
-        document.getElementById('book').scrollIntoView({ behavior: 'smooth' });
+        const calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        document.getElementById('book').scrollIntoView({ behavior: calm ? 'auto' : 'smooth' });
         setTimeout(() => document.getElementById('name').focus({ preventScroll: true }), 600);
       });
     });
